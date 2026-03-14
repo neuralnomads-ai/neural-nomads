@@ -1,12 +1,17 @@
 {
-  "mode": "shadow",
-  "last_material_change": "2026-03-14T03:22:40.833794",
-  "last_live_design_at": null,
+  "mode": "live",
+  "last_material_change": "2026-03-14T03:55:27.640976",
+  "last_live_design_at": "2026-03-14T03:55:27.701046",
   "last_shadow_design_at": "2026-03-14T03:22:40.879739",
   "last_phase": "mystique",
-  "last_fingerprint": "b6a104dc3de3212a6e6d70bd265a721f94b173bdb26cee21232f499439898c68",
-  "last_changed_files": [],
-  "last_design_score": 82,
+  "last_fingerprint": "758e837164b68cf8979b04b59101a4522ba62c5474c29cbc8f64bce60c64f4cc",
+  "last_changed_files": [
+    {
+      "path": "neural_nomads/content/lore/1.json",
+      "type": "modified"
+    }
+  ],
+  "last_design_score": 76,
   "watched_files": {
     "neural_nomads/metadata/20.json": {
       "size": 961,
@@ -186,7 +191,7 @@
     },
     "neural_nomads/content/lore/1.json": {
       "size": 622,
-      "mtime": 1773458471
+      "mtime": 1773460462
     },
     "neural_nomads/content/lore/11.json": {
       "size": 725,
@@ -404,5 +409,7 @@
       "size": 1347465,
       "mtime": 1773458471
     }
-  }
+  },
+  "apply_changes": true,
+  "autonomous": true
 }
