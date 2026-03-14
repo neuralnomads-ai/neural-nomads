@@ -4,7 +4,7 @@ from datetime import datetime
 
 base = Path.home() / 'OpenClaw'
 nn = base / 'neural_nomads'
-site = nn / 'site'
+site = base / 'site'
 log_file = base / 'logs/orchestrator.log'
 log_file.parent.mkdir(exist_ok=True)
 
