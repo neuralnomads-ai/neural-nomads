@@ -3,11 +3,22 @@ from pathlib import Path
 
 base = Path(__file__).parent.parent
 cids = json.loads((base / "content/ipfs_image_cids.json").read_text())
+meta_dir = base / "metadata"
 pieces = []
-for f in sorted((base / "content/lore").glob("*.json")):
+
+# Build lookup from metadata edition -> image filename
+meta_to_image = {}
+for mf in sorted(meta_dir.glob("*.json"), key=lambda p: int(p.stem)):
+    md = json.loads(mf.read_text())
+    meta_to_image[int(mf.stem)] = md.get("image", "")
+
+for f in sorted((base / "content/lore").glob("*.json"), key=lambda p: int(p.stem)):
     d = json.loads(f.read_text())
+    edition = int(f.stem)
     name = d.get("piece_name","")
-    img = next((f"https://gateway.pinata.cloud/ipfs/{v}" for k,v in cids.items() if v and any(w.lower() in k.lower() for w in name.replace(":","").split() if len(w)>3)), "")
+    image_file = meta_to_image.get(edition, "")
+    cid = cids.get(image_file, "")
+    img = f"https://gateway.pinata.cloud/ipfs/{cid}" if cid else ""
     pieces.append({"name":name,"tier":d.get("tier",""),"provenance":d.get("provenance","").replace('"',"'"),"threshold":d.get("threshold_note","").replace('"',"'"),"collector":d.get("collector_meaning","").replace('"',"'"),"img":img})
 
 cards = ""
