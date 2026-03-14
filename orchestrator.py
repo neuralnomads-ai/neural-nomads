@@ -71,7 +71,7 @@ def build_and_deploy():
 
     log('Deploying to Vercel...')
     r = subprocess.run(
-        ['vercel', '--yes', '--prod', '--scope', 'sapienholdingsllc-1240s-projects'],
+        ['vercel', '--yes', '--prod'],
         cwd=site,
         capture_output=True,
         text=True
