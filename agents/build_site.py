@@ -1,0 +1,262 @@
+from pathlib import Path
+import shutil
+import json
+import html
+
+BASE = Path.home() / "OpenClaw"
+SITE = BASE / "site"
+NFT_BASE = BASE / "neural_nomads"
+
+IMAGES_DIR = NFT_BASE / "assets" / "images"
+METADATA_DIR = NFT_BASE / "metadata"
+
+SITE_IMAGES = SITE / "images"
+CITIZENS_PAGE = SITE / "citizens" / "index.html"
+
+SITE_IMAGES.mkdir(parents=True, exist_ok=True)
+CITIZENS_PAGE.parent.mkdir(parents=True, exist_ok=True)
+
+def attr_value(attrs, trait_type):
+    for a in attrs:
+        if a.get("trait_type") == trait_type:
+            return a.get("value", "")
+    return ""
+
+# Copy all images into live site
+image_files = sorted(IMAGES_DIR.glob("*.png"))
+for img in image_files:
+    shutil.copy2(img, SITE_IMAGES / img.name)
+
+# Read all metadata files
+meta_files = sorted(METADATA_DIR.glob("*.json"), key=lambda p: int(p.stem))
+cards = []
+
+for mf in meta_files:
+    data = json.loads(mf.read_text(encoding="utf-8"))
+
+    name = data.get("name", mf.stem)
+    description = data.get("description", "")
+    image = data.get("image", "")
+    lore_title = data.get("lore_title", "")
+    threshold_note = data.get("threshold_note", "")
+    collector_meaning = data.get("collector_meaning", "")
+    attrs = data.get("attributes", [])
+
+    tier = attr_value(attrs, "Tier")
+    piece = attr_value(attrs, "Piece")
+    tier_arc = attr_value(attrs, "Tier Arc")
+
+    short_desc = description[:180] + ("..." if len(description) > 180 else "")
+
+    cards.append(f"""
+    <article class="card">
+      <img class="thumb" src="/images/{html.escape(image)}" alt="{html.escape(name)}" />
+      <div class="meta">
+        <div class="eyebrow">{html.escape(tier)} · {html.escape(piece)}</div>
+        <h2>{html.escape(name)}</h2>
+        <div class="lore">{html.escape(lore_title)}</div>
+        <p class="desc">{html.escape(short_desc)}</p>
+        <div class="pillrow">
+          <span class="pill">{html.escape(tier)}</span>
+          <span class="pill">{html.escape(piece)}</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> {html.escape(tier_arc)}</p>
+            <p><strong>Threshold Note:</strong> {html.escape(threshold_note)}</p>
+            <p><strong>Collector Meaning:</strong> {html.escape(collector_meaning)}</p>
+          </div>
+        </details>
+      </div>
+    </article>
+    """)
+
+html_doc = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Neural Nomads · Citizens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {{
+      --bg: #0b0b0f;
+      --panel: rgba(255,255,255,.05);
+      --border: rgba(255,255,255,.08);
+      --text: #ffffff;
+      --muted: #a7b0c6;
+      --accent: #9b6bff;
+    }}
+
+    * {{ box-sizing: border-box; }}
+
+    body {{
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }}
+
+    .wrap {{
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }}
+
+    a {{
+      color: #9fd3ff;
+      text-decoration: none;
+    }}
+
+    .topbar {{
+      margin-bottom: 24px;
+    }}
+
+    .hero {{
+      margin-bottom: 28px;
+    }}
+
+    .eyebrow-top {{
+      display: inline-block;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }}
+
+    h1 {{
+      font-size: 52px;
+      line-height: 1.02;
+      margin: 0 0 12px;
+    }}
+
+    .sub {{
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }}
+
+    .count {{
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }}
+
+    .grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }}
+
+    .card {{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }}
+
+    .thumb {{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #111;
+    }}
+
+    .meta {{
+      padding: 18px;
+    }}
+
+    .eyebrow {{
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }}
+
+    h2 {{
+      font-size: 22px;
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }}
+
+    .lore {{
+      font-size: 14px;
+      color: #d6c8ff;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }}
+
+    .desc {{
+      color: var(--muted);
+      line-height: 1.5;
+      min-height: 84px;
+    }}
+
+    .pillrow {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }}
+
+    .pill {{
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }}
+
+    details {{
+      margin-top: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }}
+
+    summary {{
+      cursor: pointer;
+      color: #cfd8ff;
+      font-weight: 700;
+    }}
+
+    .details-block {{
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a href="/">← Back</a></div>
+
+    <section class="hero">
+      <div class="eyebrow-top">Live NFT Civilization</div>
+      <h1>Citizens of Neural Nomads</h1>
+      <div class="sub">
+        A human-directed, AI-evolved collection. Each citizen is part artifact, part identity fragment, part signal from an emerging digital civilization.
+      </div>
+      <div class="count">{len(meta_files)} citizens currently visible through the Threshold.</div>
+    </section>
+
+    <section class="grid">
+      {''.join(cards)}
+    </section>
+  </div>
+</body>
+</html>
+"""
+
+CITIZENS_PAGE.write_text(html_doc, encoding="utf-8")
+print(f"Built citizens gallery with {len(meta_files)} metadata records and {len(image_files)} images.")

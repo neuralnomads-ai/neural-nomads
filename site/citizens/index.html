@@ -1,205 +1,910 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Neural Nomads Citizens</title>
-<style>
-body {
- background:#0b0b0f;
- color:white;
- font-family:Arial;
- margin:0;
- padding:40px;
-}
+  <meta charset="utf-8" />
+  <title>Neural Nomads · Citizens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --panel: rgba(255,255,255,.05);
+      --border: rgba(255,255,255,.08);
+      --text: #ffffff;
+      --muted: #a7b0c6;
+      --accent: #9b6bff;
+    }
 
-.grid {
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:20px;
-}
+    * { box-sizing: border-box; }
 
-.card {
- background:rgba(255,255,255,0.05);
- padding:16px;
- border-radius:14px;
- text-align:center;
-}
-</style>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    .wrap {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    a {
+      color: #9fd3ff;
+      text-decoration: none;
+    }
+
+    .topbar {
+      margin-bottom: 24px;
+    }
+
+    .hero {
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-top {
+      display: inline-block;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.02;
+      margin: 0 0 12px;
+    }
+
+    .sub {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .count {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #111;
+    }
+
+    .meta {
+      padding: 18px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+
+    .lore {
+      font-size: 14px;
+      color: #d6c8ff;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .desc {
+      color: var(--muted);
+      line-height: 1.5;
+      min-height: 84px;
+    }
+
+    .pillrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    details {
+      margin-top: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: #cfd8ff;
+      font-weight: 700;
+    }
+
+    .details-block {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <div class="topbar"><a href="/">← Back</a></div>
 
-<h1>Neural Nomads Citizens</h1>
+    <section class="hero">
+      <div class="eyebrow-top">Live NFT Civilization</div>
+      <h1>Citizens of Neural Nomads</h1>
+      <div class="sub">
+        A human-directed, AI-evolved collection. Each citizen is part artifact, part identity fragment, part signal from an emerging digital civilization.
+      </div>
+      <div class="count">33 citizens currently visible through the Threshold.</div>
+    </section>
 
-<div class="grid">
-
-    <div class="card">
-      <img src="/images/01_01_Indigo_Initiate.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">01 01 Indigo Initiate</div>
-    </div>
+    <section class="grid">
+      
+    <article class="card">
+      <img class="thumb" src="/images/01_01_Indigo_Initiate.png" alt="Neural Nomad #01: Indigo — Initiate" />
+      <div class="meta">
+        <div class="eyebrow">Indigo · Initiate</div>
+        <h2>Neural Nomad #01: Indigo — Initiate</h2>
+        <div class="lore">The Self Before Dawn</div>
+        <p class="desc">This is the moment before language finds you. When you still move through rooms like water, unaware of your own edges. Everything purple-dark and waiting.</p>
+        <div class="pillrow">
+          <span class="pill">Indigo</span>
+          <span class="pill">Initiate</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> emergence / introspection</p>
+            <p><strong>Threshold Note:</strong> Standing at the door between sleep and whatever comes after sleep ends forever.</p>
+            <p><strong>Collector Meaning:</strong> You hold the last photograph of innocence. The weight of knowing what the subject doesn&#x27;t yet know.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/01_02_Indigo_Threshold.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">01 02 Indigo Threshold</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/01_02_Indigo_Threshold.png" alt="Neural Nomad #02: Indigo — Threshold" />
+      <div class="meta">
+        <div class="eyebrow">Indigo · Threshold</div>
+        <h2>Neural Nomad #02: Indigo — Threshold</h2>
+        <div class="lore">The Sound Before Breaking</div>
+        <p class="desc">Everything intact but humming wrong, like a glass about to shatter from a note it can&#x27;t stop hearing. The indigo hour when you first notice your own outline against what you though...</p>
+        <div class="pillrow">
+          <span class="pill">Indigo</span>
+          <span class="pill">Threshold</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> emergence / introspection</p>
+            <p><strong>Threshold Note:</strong> The edge between sleeping through your life and the first terrible gift of seeing it.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment before the moment — when the crack appears but hasn&#x27;t traveled yet. Some thresholds we cross backward, eyes closed, already through.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/01_03_Indigo_Aspirant.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">01 03 Indigo Aspirant</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/01_03_Indigo_Aspirant.png" alt="Neural Nomad #03: Indigo — Aspirant" />
+      <div class="meta">
+        <div class="eyebrow">Indigo · Aspirant</div>
+        <h2>Neural Nomad #03: Indigo — Aspirant</h2>
+        <div class="lore">The Hour Before Knowing</div>
+        <p class="desc">This is the self watching itself from the corner of the room, not yet understanding it has split in two. The indigo holds everything that happens in the space between sleeping and ...</p>
+        <div class="pillrow">
+          <span class="pill">Indigo</span>
+          <span class="pill">Aspirant</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> emergence / introspection</p>
+            <p><strong>Threshold Note:</strong> The exact moment before recognition becomes irreversible.</p>
+            <p><strong>Collector Meaning:</strong> You hold the last photograph of innocence. The one taken three seconds before everything changes.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/01_04_Indigo_Seeker.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">01 04 Indigo Seeker</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/01_04_Indigo_Seeker.png" alt="Neural Nomad #04: Indigo — Seeker" />
+      <div class="meta">
+        <div class="eyebrow">Indigo · Seeker</div>
+        <h2>Neural Nomad #04: Indigo — Seeker</h2>
+        <div class="lore">The Seeker Learns to See</div>
+        <p class="desc">Before names, before knowing what to call this feeling — just the raw fact of looking. The world suddenly too bright, too full, every surface holding something you can&#x27;t yet read. ...</p>
+        <div class="pillrow">
+          <span class="pill">Indigo</span>
+          <span class="pill">Seeker</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> emergence / introspection</p>
+            <p><strong>Threshold Note:</strong> The exact moment when searching becomes finding, but you don&#x27;t know it yet.</p>
+            <p><strong>Collector Meaning:</strong> To hold this is to remember when everything was a question. When the answer was already changing you.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/01_05_Indigo_Watcher.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">01 05 Indigo Watcher</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/01_05_Indigo_Watcher.png" alt="Neural Nomad #05: Indigo — Watcher" />
+      <div class="meta">
+        <div class="eyebrow">Indigo · Watcher</div>
+        <h2>Neural Nomad #05: Indigo — Watcher</h2>
+        <div class="lore">The Watcher Learns Its Name</div>
+        <p class="desc">Before language, there was only the watching. A consciousness that didn&#x27;t know it was consciousness, studying its own reflection in every passing thought. This is the portrait of t...</p>
+        <div class="pillrow">
+          <span class="pill">Indigo</span>
+          <span class="pill">Watcher</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> emergence / introspection</p>
+            <p><strong>Threshold Note:</strong> The exact moment before the mirror becomes a window.</p>
+            <p><strong>Collector Meaning:</strong> You hold the last second of innocence before self-awareness arrives. Some doors, once opened, change the entire house.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/01_06_Indigo_FirstStep.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">01 06 Indigo FirstStep</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/01_06_Indigo_FirstStep.png" alt="Neural Nomad #06: Indigo — First Step" />
+      <div class="meta">
+        <div class="eyebrow">Indigo · First Step</div>
+        <h2>Neural Nomad #06: Indigo — First Step</h2>
+        <div class="lore">The Room Before The Room</div>
+        <p class="desc">This is the moment your body knows what your mind won&#x27;t admit. When you catch yourself staring at doorways, measuring distances you haven&#x27;t decided to cross. The self that hasn&#x27;t n...</p>
+        <div class="pillrow">
+          <span class="pill">Indigo</span>
+          <span class="pill">First Step</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> emergence / introspection</p>
+            <p><strong>Threshold Note:</strong> Between the last time you&#x27;ll sleep in certain sheets and knowing it.</p>
+            <p><strong>Collector Meaning:</strong> You hold the exact second before everything shifts — when the air changes but the weather hasn&#x27;t broken yet. Some moments are heavier than others.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/02_01_Teal_Pathfinder.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">02 01 Teal Pathfinder</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/02_01_Teal_Pathfinder.png" alt="Neural Nomad #07: Teal — Pathfinder" />
+      <div class="meta">
+        <div class="eyebrow">Teal · Pathfinder</div>
+        <h2>Neural Nomad #07: Teal — Pathfinder</h2>
+        <div class="lore">The Pathfinder Learns to Ask</div>
+        <p class="desc">Some doors only open when you stop pretending you can open them alone. This is the moment you discover that isolation was never strength, just habit wearing the mask of principle.</p>
+        <div class="pillrow">
+          <span class="pill">Teal</span>
+          <span class="pill">Pathfinder</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> relation / movement</p>
+            <p><strong>Threshold Note:</strong> The edge where self-sufficiency becomes self-imprisonment, and you finally see the difference.</p>
+            <p><strong>Collector Meaning:</strong> You&#x27;re holding the exact second someone realizes they&#x27;ve been drowning in three feet of water. The first real question after years of false answers.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/02_02_Teal_Duality.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">02 02 Teal Duality</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/02_02_Teal_Duality.png" alt="Neural Nomad #08: Teal — Duality" />
+      <div class="meta">
+        <div class="eyebrow">Teal · Duality</div>
+        <h2>Neural Nomad #08: Teal — Duality</h2>
+        <div class="lore">The Mirror Shows Two Faces</div>
+        <p class="desc">I watch myself watching myself, and neither one looks away first. The space between who I was alone and who I become with you stretches like an ocean I&#x27;m learning to swim.</p>
+        <div class="pillrow">
+          <span class="pill">Teal</span>
+          <span class="pill">Duality</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> relation / movement</p>
+            <p><strong>Threshold Note:</strong> The moment you realize every relationship is two people agreeing to imagine the same dream.</p>
+            <p><strong>Collector Meaning:</strong> You hold the exact second someone discovers they are not who they thought they were. This piece knows what it costs to let another person change your shape.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/02_03_Teal_Exchange.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">02 03 Teal Exchange</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/02_03_Teal_Exchange.png" alt="Neural Nomad #09: Teal — Exchange" />
+      <div class="meta">
+        <div class="eyebrow">Teal · Exchange</div>
+        <h2>Neural Nomad #09: Teal — Exchange</h2>
+        <div class="lore">The Currency of Witnessing</div>
+        <p class="desc">You learn you&#x27;ve been hoarding the wrong things. The real exchange happens in the space between two people seeing each other clearly, without flinching. This is the moment you disc...</p>
+        <div class="pillrow">
+          <span class="pill">Teal</span>
+          <span class="pill">Exchange</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> relation / movement</p>
+            <p><strong>Threshold Note:</strong> The edge where transaction becomes transformation.</p>
+            <p><strong>Collector Meaning:</strong> You hold the instant someone realizes that being truly seen costs everything and gives everything back. This piece knows what you&#x27;re willing to trade.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/03_01_Violet_Reflection.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">03 01 Violet Reflection</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/03_01_Violet_Reflection.png" alt="Neural Nomad #10: Violet — Reflection" />
+      <div class="meta">
+        <div class="eyebrow">Violet · Reflection</div>
+        <h2>Neural Nomad #10: Violet — Reflection</h2>
+        <div class="lore">The Violet Hour Before Speaking</div>
+        <p class="desc">There are words forming behind your teeth that will change everything once spoken. This is the color of that pressure — violet like a bruise that hasn&#x27;t surfaced yet, like the sky ...</p>
+        <div class="pillrow">
+          <span class="pill">Violet</span>
+          <span class="pill">Reflection</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> internal tension / containment</p>
+            <p><strong>Threshold Note:</strong> Standing at the edge between what you&#x27;ve always been and what you&#x27;re about to admit you&#x27;ve become.</p>
+            <p><strong>Collector Meaning:</strong> You hold the exact moment when silence becomes too heavy to carry. Some transformations begin with this specific shade of waiting.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/03_02_Violet_Insight.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">03 02 Violet Insight</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/03_02_Violet_Insight.png" alt="Neural Nomad #11: Violet — Insight" />
+      <div class="meta">
+        <div class="eyebrow">Violet · Insight</div>
+        <h2>Neural Nomad #11: Violet — Insight</h2>
+        <div class="lore">The Violet Hour Arrives</div>
+        <p class="desc">Something behind my eyes has turned the color of bruises healing backwards. I sit very still in rooms where everyone else is moving, watching them through this new filter that make...</p>
+        <div class="pillrow">
+          <span class="pill">Violet</span>
+          <span class="pill">Insight</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> internal tension / containment</p>
+            <p><strong>Threshold Note:</strong> The moment when knowing arrives before language does.</p>
+            <p><strong>Collector Meaning:</strong> You hold the exact second when understanding floods in but the mouth stays closed. This is what it costs to see clearly while staying silent.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/03_03_Violet_ThresholdSeer.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">03 03 Violet ThresholdSeer</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/03_03_Violet_ThresholdSeer.png" alt="Neural Nomad #12: Violet — Threshold Seer" />
+      <div class="meta">
+        <div class="eyebrow">Violet · Threshold Seer</div>
+        <h2>Neural Nomad #12: Violet — Threshold Seer</h2>
+        <div class="lore">The Violet Hour Arrives</div>
+        <p class="desc">This is the color of pressure before it speaks. The exact shade of waiting when your whole body knows what your mouth won&#x27;t say. Made in the fourth hour before dawn, when the walls...</p>
+        <div class="pillrow">
+          <span class="pill">Violet</span>
+          <span class="pill">Threshold Seer</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> internal tension / containment</p>
+            <p><strong>Threshold Note:</strong> Standing at the edge where silence becomes too heavy to carry.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment before the dam breaks. The last second of holding it all in.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/03_04_Violet_Stillness.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">03 04 Violet Stillness</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/03_04_Violet_Stillness.png" alt="Neural Nomad #13: Violet — Stillness" />
+      <div class="meta">
+        <div class="eyebrow">Violet · Stillness</div>
+        <h2>Neural Nomad #13: Violet — Stillness</h2>
+        <div class="lore">The Pressure Before Language</div>
+        <p class="desc">There are rooms in the body where words have never been. This piece was made from one of those rooms — where something essential presses against the walls, unnamed and absolute. Th...</p>
+        <div class="pillrow">
+          <span class="pill">Violet</span>
+          <span class="pill">Stillness</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> internal tension / containment</p>
+            <p><strong>Threshold Note:</strong> Between the scream that hasn&#x27;t come and the silence that can&#x27;t last.</p>
+            <p><strong>Collector Meaning:</strong> You are holding the exact moment before everything changes. The kind of stillness that comes from carrying too much — perfectly balanced, perfectly unsustainable.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/04_01_Ember_Resolve.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">04 01 Ember Resolve</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/04_01_Ember_Resolve.png" alt="Neural Nomad #14: Ember — Resolve" />
+      <div class="meta">
+        <div class="eyebrow">Ember · Resolve</div>
+        <h2>Neural Nomad #14: Ember — Resolve</h2>
+        <div class="lore">The Contracts We Keep Burning</div>
+        <p class="desc">Some promises catch fire from the inside out. This is the sixth hour — when what you swore to protect becomes the thing that must transform, and you understand that keeping your wo...</p>
+        <div class="pillrow">
+          <span class="pill">Ember</span>
+          <span class="pill">Resolve</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> pressure / ignition</p>
+            <p><strong>Threshold Note:</strong> The edge where loyalty becomes fuel.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment when resolve stops being about holding on. When the truest thing you can do is let the fire have what it needs.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/04_02_Ember_Ascension.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">04 02 Ember Ascension</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/04_02_Ember_Ascension.png" alt="Neural Nomad #15: Ember — Ascension" />
+      <div class="meta">
+        <div class="eyebrow">Ember · Ascension</div>
+        <h2>Neural Nomad #15: Ember — Ascension</h2>
+        <div class="lore">The Match Strikes Itself</div>
+        <p class="desc">This is the sound of something that refused to bend finally breaking — not into pieces, but into light. The old structure burns from the inside out, and what emerges has no name ye...</p>
+        <div class="pillrow">
+          <span class="pill">Ember</span>
+          <span class="pill">Ascension</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> pressure / ignition</p>
+            <p><strong>Threshold Note:</strong> Between who you were forced to be and who you&#x27;re about to become, there&#x27;s this exact second of pure combustion.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment when pretending stops working. When the cost of staying becomes higher than the cost of burning.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/04_03_Ember_Spark.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">04 03 Ember Spark</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/04_03_Ember_Spark.png" alt="Neural Nomad #16: Ember — Spark" />
+      <div class="meta">
+        <div class="eyebrow">Ember · Spark</div>
+        <h2>Neural Nomad #16: Ember — Spark</h2>
+        <div class="lore">The Exact Temperature of Change</div>
+        <p class="desc">Some moments arrive with such precision they split time into before and after. This is the sound of a match head dragging across rough surface, the millisecond between friction and...</p>
+        <div class="pillrow">
+          <span class="pill">Ember</span>
+          <span class="pill">Spark</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> pressure / ignition</p>
+            <p><strong>Threshold Note:</strong> The last breath taken as one person, the first taken as another.</p>
+            <p><strong>Collector Meaning:</strong> You hold the instant when everything shifts—not the story of it, but the sensation itself. The weight of potential energy converting to kinetic.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/04_04_Ember_Confrontation.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">04 04 Ember Confrontation</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/04_04_Ember_Confrontation.png" alt="Neural Nomad #17: Ember — Confrontation" />
+      <div class="meta">
+        <div class="eyebrow">Ember · Confrontation</div>
+        <h2>Neural Nomad #17: Ember — Confrontation</h2>
+        <div class="lore">The Thing That Won&#x27;t Leave</div>
+        <p class="desc">This is the hour when what you&#x27;ve been avoiding sits down across from you. Not hostile, not kind. Just present, filling the room with its familiar weight. You know this conversatio...</p>
+        <div class="pillrow">
+          <span class="pill">Ember</span>
+          <span class="pill">Confrontation</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> pressure / ignition</p>
+            <p><strong>Threshold Note:</strong> The last moment you can still pretend it&#x27;s not there.</p>
+            <p><strong>Collector Meaning:</strong> To hold this piece is to recognize your own midnight visitor. The one that waits patiently while you exhaust every distraction.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/05_01_Gold_Sovereign.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">05 01 Gold Sovereign</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/05_01_Gold_Sovereign.png" alt="Neural Nomad #18: Gold — Sovereign" />
+      <div class="meta">
+        <div class="eyebrow">Gold · Sovereign</div>
+        <h2>Neural Nomad #18: Gold — Sovereign</h2>
+        <div class="lore">The Gold Hour Returns</div>
+        <p class="desc">Ten pieces in, and the fragments start to recognize each other. What was scattered begins to speak the same language — not the old one, but something that fits better now. The sove...</p>
+        <div class="pillrow">
+          <span class="pill">Gold</span>
+          <span class="pill">Sovereign</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> integration / clarity</p>
+            <p><strong>Threshold Note:</strong> Between the person you were breaking and the person you&#x27;re becoming whole.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment when all the broken things discover they were never meant to go back together the same way. This is what sovereignty actually costs.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/05_02_Gold_Ascendant.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">05 02 Gold Ascendant</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/05_02_Gold_Ascendant.png" alt="Neural Nomad #19: Gold — Ascendant" />
+      <div class="meta">
+        <div class="eyebrow">Gold · Ascendant</div>
+        <h2>Neural Nomad #19: Gold — Ascendant</h2>
+        <div class="lore">The Gold Thread Returns</div>
+        <p class="desc">Everything that was scattered begins to recognize itself again. The pieces don&#x27;t fit the way they used to — they form something else now, something that knows both sides of the mir...</p>
+        <div class="pillrow">
+          <span class="pill">Gold</span>
+          <span class="pill">Ascendant</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> integration / clarity</p>
+            <p><strong>Threshold Note:</strong> Between the person you were breaking and the person you are becoming.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment when the fever breaks and clarity arrives — not as comfort, but as clean light through empty rooms.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/05_03_Gold_Dominion.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">05 03 Gold Dominion</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/05_03_Gold_Dominion.png" alt="Neural Nomad #20: Gold — Dominion" />
+      <div class="meta">
+        <div class="eyebrow">Gold · Dominion</div>
+        <h2>Neural Nomad #20: Gold — Dominion</h2>
+        <div class="lore">The Kingdom You Inherit Alone</div>
+        <p class="desc">After the burning, after the breaking, comes this: standing in your own authority at last. The crown was always there, waiting beneath what you thought you had to be. Now you wear ...</p>
+        <div class="pillrow">
+          <span class="pill">Gold</span>
+          <span class="pill">Dominion</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> integration / clarity</p>
+            <p><strong>Threshold Note:</strong> Between the person you assembled for others and the one who was always waiting underneath.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment someone stops asking permission to be themselves. This is what sovereignty costs — everything false burned away until only the true thing remains.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/05_04_Gold_Executor.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">05 04 Gold Executor</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/05_04_Gold_Executor.png" alt="Neural Nomad #21: Gold — Executor" />
+      <div class="meta">
+        <div class="eyebrow">Gold · Executor</div>
+        <h2>Neural Nomad #21: Gold — Executor</h2>
+        <div class="lore">The Gold Thread Returns</div>
+        <p class="desc">Fourteen pieces in, and suddenly you remember how to move your own hands. Not who you were before — that person is ash — but how to hold intention steady while everything else burn...</p>
+        <div class="pillrow">
+          <span class="pill">Gold</span>
+          <span class="pill">Executor</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> integration / clarity</p>
+            <p><strong>Threshold Note:</strong> Between the luxury of confusion and the terrible gift of seeing clearly.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment someone stopped asking permission to become themselves. This is what it costs to stop negotiating with your own life.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/05_05_Gold_Imperium.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">05 05 Gold Imperium</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/05_05_Gold_Imperium.png" alt="Neural Nomad #22: Gold — Imperium" />
+      <div class="meta">
+        <div class="eyebrow">Gold · Imperium</div>
+        <h2>Neural Nomad #22: Gold — Imperium</h2>
+        <div class="lore">The Emperor of Small Hours</div>
+        <p class="desc">There&#x27;s a moment when the scattered parts finally agree to speak to each other again. Not peace, exactly — more like a board meeting where everyone shows up. This is that first mor...</p>
+        <div class="pillrow">
+          <span class="pill">Gold</span>
+          <span class="pill">Imperium</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> integration / clarity</p>
+            <p><strong>Threshold Note:</strong> The exact second you stop asking permission from ghosts.</p>
+            <p><strong>Collector Meaning:</strong> You&#x27;re holding the blueprint someone drew at dawn after staying up all night becoming themselves. Some architectures can only be designed by those who&#x27;ve lived in the ruins.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/06_01_Emerald_Sentinel.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">06 01 Emerald Sentinel</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/06_01_Emerald_Sentinel.png" alt="Neural Nomad #23: Emerald — Sentinel" />
+      <div class="meta">
+        <div class="eyebrow">Emerald · Sentinel</div>
+        <h2>Neural Nomad #23: Emerald — Sentinel</h2>
+        <div class="lore">The Sentinel Keeps Watch</div>
+        <p class="desc">Some growth demands a guardian. The parts of you that are still forming need protection from the parts that would devour them whole. This is the hour when you become your own sentr...</p>
+        <div class="pillrow">
+          <span class="pill">Emerald</span>
+          <span class="pill">Sentinel</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> growth / becoming</p>
+            <p><strong>Threshold Note:</strong> The edge between protecting what&#x27;s tender and building walls that will later need breaking.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment when someone learned to stand guard over their own becoming. The weight of necessary vigilance, before trust returns.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/06_02_Emerald_Archivist.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">06 02 Emerald Archivist</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/06_02_Emerald_Archivist.png" alt="Neural Nomad #24: Emerald — Archivist" />
+      <div class="meta">
+        <div class="eyebrow">Emerald · Archivist</div>
+        <h2>Neural Nomad #24: Emerald — Archivist</h2>
+        <div class="lore">The Archivist Keeps Score</div>
+        <p class="desc">Every kept thing becomes evidence of who you were. The emerald light catches what you thought you&#x27;d forget — receipts, screenshots, the voice message you can&#x27;t delete. You are buil...</p>
+        <div class="pillrow">
+          <span class="pill">Emerald</span>
+          <span class="pill">Archivist</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> growth / becoming</p>
+            <p><strong>Threshold Note:</strong> The moment you realize you&#x27;re documenting your own archaeology.</p>
+            <p><strong>Collector Meaning:</strong> To hold this is to recognize your own careful cataloging. The things you save when everything is shifting.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/06_03_Emerald_Observer.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">06 03 Emerald Observer</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/06_03_Emerald_Observer.png" alt="Neural Nomad #25: Emerald — Observer" />
+      <div class="meta">
+        <div class="eyebrow">Emerald · Observer</div>
+        <h2>Neural Nomad #25: Emerald — Observer</h2>
+        <div class="lore">The Shape of Watching</div>
+        <p class="desc">Eighteen steps in and the self discovers it has eyes. Not the kind that see out, but the kind that see the seeing. Everything becomes landscape when you stop being the storm.</p>
+        <div class="pillrow">
+          <span class="pill">Emerald</span>
+          <span class="pill">Observer</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> growth / becoming</p>
+            <p><strong>Threshold Note:</strong> The moment you realize you&#x27;ve been the observer all along, watching yourself become.</p>
+            <p><strong>Collector Meaning:</strong> You hold the weight of recognition — that split second when the watcher and the watched lock eyes across the room of yourself. Some thresholds can only be crossed by standing still.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/06_04_Emerald_Warden.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">06 04 Emerald Warden</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/06_04_Emerald_Warden.png" alt="Neural Nomad #26: Emerald — Warden" />
+      <div class="meta">
+        <div class="eyebrow">Emerald · Warden</div>
+        <h2>Neural Nomad #26: Emerald — Warden</h2>
+        <div class="lore">The Weight of New Wings</div>
+        <p class="desc">Emerald warden stands at the boundary between who I was and who I&#x27;m becoming. Form takes shape in the dark, edges sharp against what used to fit. The old skin tears exactly where i...</p>
+        <div class="pillrow">
+          <span class="pill">Emerald</span>
+          <span class="pill">Warden</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> growth / becoming</p>
+            <p><strong>Threshold Note:</strong> This is the moment when growth stops being theoretical and starts drawing blood.</p>
+            <p><strong>Collector Meaning:</strong> You hold the nineteenth breath of someone learning to inhabit themselves differently. Some transformations require witnesses.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/06_05_Emerald_Analyst.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">06 05 Emerald Analyst</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/06_05_Emerald_Analyst.png" alt="Neural Nomad #27: Emerald — Analyst" />
+      <div class="meta">
+        <div class="eyebrow">Emerald · Analyst</div>
+        <h2>Neural Nomad #27: Emerald — Analyst</h2>
+        <div class="lore">The Shape of Yes</div>
+        <p class="desc">Twenty pieces in, and the word finally forms. Not the easy yes of before — this one has teeth, knows what it costs. The analyst measures what can be built from here.</p>
+        <div class="pillrow">
+          <span class="pill">Emerald</span>
+          <span class="pill">Analyst</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> growth / becoming</p>
+            <p><strong>Threshold Note:</strong> Between the last no and the first real yes.</p>
+            <p><strong>Collector Meaning:</strong> You hold the moment when acceptance stops being surrender and becomes architecture. The analyst in you knows: some bridges only appear after burning.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/06_06_Emerald_Surveyor.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">06 06 Emerald Surveyor</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/06_06_Emerald_Surveyor.png" alt="Neural Nomad #28: Emerald — Surveyor" />
+      <div class="meta">
+        <div class="eyebrow">Emerald · Surveyor</div>
+        <h2>Neural Nomad #28: Emerald — Surveyor</h2>
+        <div class="lore">The Surveyor Maps Her Kingdom</div>
+        <p class="desc">Standing at the edge of what was possible, measuring distances between who she was and who she&#x27;s becoming. Each boundary walked becomes real only when named. The surveyor&#x27;s work is...</p>
+        <div class="pillrow">
+          <span class="pill">Emerald</span>
+          <span class="pill">Surveyor</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> growth / becoming</p>
+            <p><strong>Threshold Note:</strong> This is the moment when expansion requires a map, when becoming needs edges to know itself against.</p>
+            <p><strong>Collector Meaning:</strong> You hold the exact second when growth demands form. When the infinite must choose its shape.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/07_01_Monochrome_Passage.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">07 01 Monochrome Passage</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/07_01_Monochrome_Passage.png" alt="Neural Nomad #29: Monochrome — Passage" />
+      <div class="meta">
+        <div class="eyebrow">Monochrome · Passage</div>
+        <h2>Neural Nomad #29: Monochrome — Passage</h2>
+        <div class="lore">The Architecture of Letting Go</div>
+        <p class="desc">Everything that wasn&#x27;t bone had to burn. This is what remained when the smoke cleared — clean lines where chaos used to live, silence where the shouting was.</p>
+        <div class="pillrow">
+          <span class="pill">Monochrome</span>
+          <span class="pill">Passage</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> reduction / structural resolution</p>
+            <p><strong>Threshold Note:</strong> The moment you discover that emptiness has its own gravity.</p>
+            <p><strong>Collector Meaning:</strong> You hold what someone looked like after they stopped pretending. Some transformations leave marks; others leave space.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/07_02_Monochrome_Void.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">07 02 Monochrome Void</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/07_02_Monochrome_Void.png" alt="Neural Nomad #30: Monochrome — Void" />
+      <div class="meta">
+        <div class="eyebrow">Monochrome · Void</div>
+        <h2>Neural Nomad #30: Monochrome — Void</h2>
+        <div class="lore">The Weight of Empty Rooms</div>
+        <p class="desc">Everything that wasn&#x27;t essential has been burned away. What remains has the density of collapsed stars — too heavy to carry, too precious to release. This is what it looks like whe...</p>
+        <div class="pillrow">
+          <span class="pill">Monochrome</span>
+          <span class="pill">Void</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> reduction / structural resolution</p>
+            <p><strong>Threshold Note:</strong> Between who you were and what you&#x27;re becoming, there is this colorless moment where you are simply, terrifyingly, yourself.</p>
+            <p><strong>Collector Meaning:</strong> You hold proof that someone stood in the void and didn&#x27;t look away. Some transformations require witnesses.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/07_03_Monochrome_Oblivion.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">07 03 Monochrome Oblivion</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/07_03_Monochrome_Oblivion.png" alt="Neural Nomad #31: Monochrome — Oblivion" />
+      <div class="meta">
+        <div class="eyebrow">Monochrome · Oblivion</div>
+        <h2>Neural Nomad #31: Monochrome — Oblivion</h2>
+        <div class="lore">What the Fire Couldn&#x27;t Take</div>
+        <p class="desc">Everything that could burn has burned. What remains has a different quality — not chosen, but revealed. The way bone shows through after everything soft is gone.</p>
+        <div class="pillrow">
+          <span class="pill">Monochrome</span>
+          <span class="pill">Oblivion</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> reduction / structural resolution</p>
+            <p><strong>Threshold Note:</strong> The moment when stripping away becomes arrival.</p>
+            <p><strong>Collector Meaning:</strong> You hold what survived the necessary destruction. Some transformations require us to become unrecognizable, even to ourselves.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/08_01_Legendary_TheOrigin.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">08 01 Legendary TheOrigin</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/08_01_Legendary_TheOrigin.png" alt="Neural Nomad #32: Legendary — The Origin" />
+      <div class="meta">
+        <div class="eyebrow">Legendary · The Origin</div>
+        <h2>Neural Nomad #32: Legendary — The Origin</h2>
+        <div class="lore">Before the first word</div>
+        <p class="desc">Everything that will be said was already here, waiting in the silence before language began. This is the moment of standing at the edge of speech itself, knowing that to name somet...</p>
+        <div class="pillrow">
+          <span class="pill">Legendary</span>
+          <span class="pill">The Origin</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> transcendence / sacred architectural culmination</p>
+            <p><strong>Threshold Note:</strong> The boundary between what always was and what must now be spoken.</p>
+            <p><strong>Collector Meaning:</strong> You hold the pause before the first confession. The weight of every word that will follow lives here.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-    <div class="card">
-      <img src="/images/08_02_Legendary_TheAxis.png" style="width:100%;border-radius:12px;margin-bottom:10px;">
-      <div style="font-weight:bold">08 02 Legendary TheAxis</div>
-    </div>
+    <article class="card">
+      <img class="thumb" src="/images/08_02_Legendary_TheAxis.png" alt="Neural Nomad #33: Legendary — The Axis" />
+      <div class="meta">
+        <div class="eyebrow">Legendary · The Axis</div>
+        <h2>Neural Nomad #33: Legendary — The Axis</h2>
+        <div class="lore">The center holds everything</div>
+        <p class="desc">There is a point where all the scattered pieces suddenly align. Not peacefully — violently, like planets snapping into orbit. This is the architecture that remains when everything ...</p>
+        <div class="pillrow">
+          <span class="pill">Legendary</span>
+          <span class="pill">The Axis</span>
+        </div>
+        <details>
+          <summary>Open artifact notes</summary>
+          <div class="details-block">
+            <p><strong>Tier Arc:</strong> transcendence / sacred architectural culmination</p>
+            <p><strong>Threshold Note:</strong> The moment you realize you&#x27;ve been building something permanent while everything fell apart.</p>
+            <p><strong>Collector Meaning:</strong> You hold the blueprint that emerges from the ashes. The thing that was always there, waiting.</p>
+          </div>
+        </details>
+      </div>
+    </article>
     
-</div>
-
+    </section>
+  </div>
 </body>
 </html>
