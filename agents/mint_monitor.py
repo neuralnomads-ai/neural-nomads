@@ -229,51 +229,62 @@ def process_mint(mint):
     log_mint(token_id, piece_name, collector, text, tx_hash)
 
 
-def run():
-    """Main loop: check for new mints every 5 minutes."""
-    print("Mint Monitor starting...")
-    print(f"Contract: {CONTRACT_ADDRESS or 'NOT SET'}")
-    print(f"Polling interval: {POLL_INTERVAL}s")
+def check_once():
+    """Single check for new mints (called by orchestrator)."""
+    if not CONTRACT_ADDRESS:
+        print("CONTRACT_ADDRESS not set, skipping mint check.")
+        return
 
     state = load_state()
 
-    # Initialize from current block if no state
     if state["last_block"] is None:
         latest = get_latest_block()
         if latest is None:
-            print("Cannot reach Base RPC, exiting.")
+            print("Cannot reach Base RPC.")
             return
         state["last_block"] = latest
         save_state(state)
-        print(f"Initialized at block {latest}. Watching for new mints...")
+        print(f"Initialized at block {latest}.")
+        return
+
+    try:
+        latest = get_latest_block()
+        if latest is None:
+            print("Failed to get latest block.")
+            return
+
+        from_block = state["last_block"] + 1
+        if from_block > latest:
+            print("No new blocks.")
+            return
+
+        print(f"Checking blocks {from_block} to {latest}...")
+        mints = get_recent_mints(from_block, latest)
+
+        for mint in mints:
+            process_mint(mint)
+
+        state["last_block"] = latest
+        save_state(state)
+        print(f"Check complete. {len(mints)} mint(s) found.")
+
+    except Exception as e:
+        print(f"Error checking mints: {e}")
+
+
+def run():
+    """Continuous polling loop (standalone mode)."""
+    print("Mint Monitor starting...")
+    print(f"Contract: {CONTRACT_ADDRESS or 'NOT SET'}")
 
     while True:
-        try:
-            latest = get_latest_block()
-            if latest is None:
-                print("Failed to get latest block, will retry.")
-                time.sleep(POLL_INTERVAL)
-                continue
-
-            from_block = state["last_block"] + 1
-            if from_block > latest:
-                time.sleep(POLL_INTERVAL)
-                continue
-
-            print(f"Checking blocks {from_block} to {latest}...")
-            mints = get_recent_mints(from_block, latest)
-
-            for mint in mints:
-                process_mint(mint)
-
-            state["last_block"] = latest
-            save_state(state)
-
-        except Exception as e:
-            print(f"Error in main loop: {e}")
-
+        check_once()
         time.sleep(POLL_INTERVAL)
 
 
 if __name__ == "__main__":
-    run()
+    import sys
+    if "--once" in sys.argv:
+        check_once()
+    else:
+        run()

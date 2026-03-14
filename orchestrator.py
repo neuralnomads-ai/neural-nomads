@@ -6,6 +6,7 @@ from datetime import datetime
 base = Path.home() / 'OpenClaw'
 nn = base / 'neural_nomads'
 site = base / 'site'
+venv_python = str(base / 'venv' / 'bin' / 'python3')
 log_file = base / 'logs/orchestrator.log'
 log_file.parent.mkdir(exist_ok=True)
 
@@ -41,7 +42,7 @@ def hours_since(ts):
 def post_farcaster():
     log('Posting to Farcaster...')
     r = subprocess.run(
-        ['python3', 'agents/farcaster_agent.py'],
+        [venv_python, 'agents/farcaster_agent.py'],
         cwd=nn,
         capture_output=True,
         text=True
@@ -51,7 +52,7 @@ def post_farcaster():
 def generate_twitter_draft():
     log('Generating Twitter draft...')
     r = subprocess.run(
-        ['python3', 'agents/twitter_agent.py'],
+        [venv_python, 'agents/twitter_agent.py'],
         cwd=base,
         capture_output=True,
         text=True
@@ -61,7 +62,7 @@ def generate_twitter_draft():
 def build_and_deploy():
     log('Building website...')
     r = subprocess.run(
-        ['python3', 'agents/build_site.py'],
+        [venv_python, 'agents/build_site.py'],
         cwd=nn,
         capture_output=True,
         text=True
@@ -80,7 +81,7 @@ def build_and_deploy():
 def run_content_calendar():
     log('Running content calendar...')
     r = subprocess.run(
-        ['python3', 'agents/content_calendar.py'],
+        [venv_python, 'agents/content_calendar.py'],
         cwd=base,
         capture_output=True,
         text=True
@@ -90,7 +91,7 @@ def run_content_calendar():
 def check_mints():
     log('Checking for new mints...')
     r = subprocess.run(
-        ['python3', 'agents/mint_monitor.py'],
+        [venv_python, 'agents/mint_monitor.py', '--once'],
         cwd=base,
         capture_output=True,
         text=True
@@ -100,7 +101,7 @@ def check_mints():
 def evolve_phase():
     log('Checking phase evolution...')
     r = subprocess.run(
-        ['python3', 'agents/phase_evolution.py'],
+        [venv_python, 'agents/phase_evolution.py'],
         cwd=base,
         capture_output=True,
         text=True
