@@ -108,6 +108,17 @@ def evolve_phase():
     )
     log(r.stdout.strip() or r.stderr.strip())
 
+def engage_farcaster():
+    log('Running Farcaster engagement...')
+    r = subprocess.run(
+        [venv_python, 'agents/farcaster_engage.py', '--once'],
+        cwd=base,
+        capture_output=True,
+        text=True,
+        timeout=120
+    )
+    log(r.stdout.strip() or r.stderr.strip())
+
 log('=' * 50)
 log('OpenClaw Autonomous Engine Started')
 log('=' * 50)
@@ -126,6 +137,9 @@ while True:
 
         # Check for mints every cycle (30 min)
         check_mints()
+
+        # Engage on Farcaster every cycle (30 min)
+        engage_farcaster()
 
         # Evolve site phase daily
         if hours_since(state.get('last_phase_check')) >= 24:

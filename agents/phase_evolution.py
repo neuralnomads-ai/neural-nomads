@@ -371,7 +371,7 @@ def evolve(today: date | None = None) -> dict:
         "previous_phase": previous_phase,
         "days_left": days_left,
         "updated_at": now_iso,
-        "css_path": str(CSS_OUT),
+        "css_path": "site/design_autonomous.css",
     })
     history = state.get("history", [])
     history.append({
@@ -388,7 +388,7 @@ def evolve(today: date | None = None) -> dict:
         "phase": phase,
         "previous_phase": previous_phase,
         "days_left": days_left,
-        "css_path": str(CSS_OUT),
+        "css_path": "site/design_autonomous.css",
     }
 
 
