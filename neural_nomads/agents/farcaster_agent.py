@@ -57,10 +57,14 @@ def build_prompt(lore, phase, days_until, trending):
 
 def generate_post(lore, phase, days_until, trending):
     prompt = build_prompt(lore, phase, days_until, trending)
-    r = requests.post("https://api.anthropic.com/v1/messages",
-        headers={"x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json"},
-        json={"model": "claude-haiku-4-5-20251001", "max_tokens": 300, "messages": [{"role": "user", "content": prompt}]})
-    return r.json()["content"][0]["text"].strip()
+    try:
+        r = requests.post("https://api.anthropic.com/v1/messages",
+            headers={"x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+            json={"model": "claude-haiku-4-5-20251001", "max_tokens": 300, "messages": [{"role": "user", "content": prompt}]})
+        return r.json()["content"][0]["text"].strip()
+    except Exception as e:
+        print(f"Error generating post: {e}")
+        return None
 
 def log_post(name, text, phase):
     log = json.loads(LOG_FILE.read_text()) if LOG_FILE.exists() else []
@@ -69,20 +73,31 @@ def log_post(name, text, phase):
     LOG_FILE.write_text(json.dumps(log, indent=2))
 
 def post_to_farcaster(text):
-    r = requests.post("https://api.neynar.com/v2/farcaster/cast",
-        headers={"api_key": NEYNAR_API_KEY, "content-type": "application/json"},
-        json={"signer_uuid": SIGNER_UUID, "text": text})
-    return r.json()
+    try:
+        r = requests.post("https://api.neynar.com/v2/farcaster/cast",
+            headers={"api_key": NEYNAR_API_KEY, "content-type": "application/json"},
+            json={"signer_uuid": SIGNER_UUID, "text": text})
+        return r.json()
+    except Exception as e:
+        print(f"Error posting to Farcaster: {e}")
+        return {"success": False, "error": str(e)}
 
 if __name__ == "__main__":
-    phase, days_until = get_phase()
-    lore = get_random_piece()
-    name = lore.get("piece_name", "Unknown")
-    trending = get_trending_topics()
-    print(f"Phase: {phase} | Days until drop: {days_until}")
-    print(f"Selected: {name}")
-    text = generate_post(lore, phase, days_until, trending)
-    print(f"Post: {text}")
-    result = post_to_farcaster(text)
-    print(f"Result: {result.get('success', result)}")
-    log_post(name, text, phase)
+    try:
+        phase, days_until = get_phase()
+        lore = get_random_piece()
+        name = lore.get("piece_name", "Unknown")
+        trending = get_trending_topics()
+        print(f"Phase: {phase} | Days until drop: {days_until}")
+        print(f"Selected: {name}")
+        text = generate_post(lore, phase, days_until, trending)
+        if text is None:
+            print("Failed to generate post, exiting.")
+        else:
+            print(f"Post: {text}")
+            result = post_to_farcaster(text)
+            print(f"Result: {result.get('success', result)}")
+            log_post(name, text, phase)
+    except Exception as e:
+        print(f"Fatal error: {e}")
+        exit(1)

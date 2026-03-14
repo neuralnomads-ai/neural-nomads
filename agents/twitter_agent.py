@@ -71,18 +71,22 @@ Write only the tweet text, nothing else."""
 
 def generate_tweet(lore, phase, days_until):
     prompt = build_prompt(lore, phase, days_until)
-    r = requests.post("https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 300,
-            "messages": [{"role": "user", "content": prompt}],
-        })
-    return r.json()["content"][0]["text"].strip()
+    try:
+        r = requests.post("https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+            json={
+                "model": "claude-haiku-4-5-20251001",
+                "max_tokens": 300,
+                "messages": [{"role": "user", "content": prompt}],
+            })
+        return r.json()["content"][0]["text"].strip()
+    except Exception as e:
+        print(f"Error generating tweet: {e}")
+        return None
 
 
 def post_to_twitter(text):

@@ -1,4 +1,5 @@
 import os, json, time, subprocess, logging
+from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from datetime import datetime
 
@@ -8,12 +9,19 @@ site = base / 'site'
 log_file = base / 'logs/orchestrator.log'
 log_file.parent.mkdir(exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(message)s',
-    handlers=[logging.FileHandler(log_file), logging.StreamHandler()]
-)
-log = logging.info
+logger = logging.getLogger('openclaw')
+logger.setLevel(logging.INFO)
+fmt = logging.Formatter('%(asctime)s %(message)s')
+
+file_handler = RotatingFileHandler(log_file, maxBytes=5*1024*1024, backupCount=3)
+file_handler.setFormatter(fmt)
+logger.addHandler(file_handler)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(fmt)
+logger.addHandler(stream_handler)
+
+log = logger.info
 
 state_file = base / 'state.json'
 
