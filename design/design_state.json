@@ -5,12 +5,7 @@
   "last_shadow_design_at": "2026-03-14T03:22:40.879739",
   "last_phase": "mystique",
   "last_fingerprint": "758e837164b68cf8979b04b59101a4522ba62c5474c29cbc8f64bce60c64f4cc",
-  "last_changed_files": [
-    {
-      "path": "neural_nomads/content/lore/1.json",
-      "type": "modified"
-    }
-  ],
+  "last_changed_files": [],
   "last_design_score": 76,
   "watched_files": {
     "neural_nomads/metadata/20.json": {

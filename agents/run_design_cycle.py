@@ -58,6 +58,12 @@ def main():
                     mode = summary.get("mode")
                     applied = summary.get("applied_to_live_site")
                     log(f"design_designer completed | mode={mode} | applied={applied}")
+                    if mode == "live" and applied:
+                        rc3, out3, err3 = run("auto_commit_and_push.py")
+                        if rc3 != 0:
+                            log(f"auto_commit_and_push failed | {err3}")
+                        else:
+                            log("auto_commit_and_push completed")
         else:
             log("no material change")
 
