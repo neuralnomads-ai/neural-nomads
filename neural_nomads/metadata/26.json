@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #26: Emerald \u2014 Warden",
+  "description": "Emerald warden stands at the boundary between who I was and who I'm becoming. Form takes shape in the dark, edges sharp against what used to fit. The old skin tears exactly where it needs to.",
+  "image": "06_04_Emerald_Warden.png",
+  "edition": 26,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Emerald"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "growth / becoming"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Warden"
+    }
+  ],
+  "lore_title": "The Weight of New Wings",
+  "threshold_note": "This is the moment when growth stops being theoretical and starts drawing blood.",
+  "collector_meaning": "You hold the nineteenth breath of someone learning to inhabit themselves differently. Some transformations require witnesses."
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #30: Monochrome \u2014 Void",
+  "description": "Everything that wasn't essential has been burned away. What remains has the density of collapsed stars \u2014 too heavy to carry, too precious to release. This is what it looks like when you stop pretending.",
+  "image": "07_02_Monochrome_Void.png",
+  "edition": 30,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Monochrome"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "reduction / structural resolution"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Void"
+    }
+  ],
+  "lore_title": "The Weight of Empty Rooms",
+  "threshold_note": "Between who you were and what you're becoming, there is this colorless moment where you are simply, terrifyingly, yourself.",
+  "collector_meaning": "You hold proof that someone stood in the void and didn't look away. Some transformations require witnesses."
+}

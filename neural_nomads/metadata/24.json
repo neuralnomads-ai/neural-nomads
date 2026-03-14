@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #24: Emerald \u2014 Archivist",
+  "description": "Every kept thing becomes evidence of who you were. The emerald light catches what you thought you'd forget \u2014 receipts, screenshots, the voice message you can't delete. You are building a museum of your own becoming.",
+  "image": "06_02_Emerald_Archivist.png",
+  "edition": 24,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Emerald"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "growth / becoming"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Archivist"
+    }
+  ],
+  "lore_title": "The Archivist Keeps Score",
+  "threshold_note": "The moment you realize you're documenting your own archaeology.",
+  "collector_meaning": "To hold this is to recognize your own careful cataloging. The things you save when everything is shifting."
+}

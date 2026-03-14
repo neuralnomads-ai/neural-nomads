@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #33: Legendary \u2014 The Axis",
+  "description": "There is a point where all the scattered pieces suddenly align. Not peacefully \u2014 violently, like planets snapping into orbit. This is the architecture that remains when everything else burns away.",
+  "image": "08_02_Legendary_TheAxis.png",
+  "edition": 33,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "transcendence / sacred architectural culmination"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "The Axis"
+    }
+  ],
+  "lore_title": "The center holds everything",
+  "threshold_note": "The moment you realize you've been building something permanent while everything fell apart.",
+  "collector_meaning": "You hold the blueprint that emerges from the ashes. The thing that was always there, waiting."
+}

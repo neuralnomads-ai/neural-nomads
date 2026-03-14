@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #13: Violet \u2014 Stillness",
+  "description": "There are rooms in the body where words have never been. This piece was made from one of those rooms \u2014 where something essential presses against the walls, unnamed and absolute. The violet holds what the throat cannot.",
+  "image": "03_04_Violet_Stillness.png",
+  "edition": 13,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Violet"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "internal tension / containment"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Stillness"
+    }
+  ],
+  "lore_title": "The Pressure Before Language",
+  "threshold_note": "Between the scream that hasn't come and the silence that can't last.",
+  "collector_meaning": "You are holding the exact moment before everything changes. The kind of stillness that comes from carrying too much \u2014 perfectly balanced, perfectly unsustainable."
+}

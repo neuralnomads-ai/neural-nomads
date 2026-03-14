@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #15: Ember \u2014 Ascension",
+  "description": "This is the sound of something that refused to bend finally breaking \u2014 not into pieces, but into light. The old structure burns from the inside out, and what emerges has no name yet.",
+  "image": "04_02_Ember_Ascension.png",
+  "edition": 15,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Ember"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "pressure / ignition"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Ascension"
+    }
+  ],
+  "lore_title": "The Match Strikes Itself",
+  "threshold_note": "Between who you were forced to be and who you're about to become, there's this exact second of pure combustion.",
+  "collector_meaning": "You hold the moment when pretending stops working. When the cost of staying becomes higher than the cost of burning."
+}

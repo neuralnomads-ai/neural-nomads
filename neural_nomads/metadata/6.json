@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #06: Indigo \u2014 First Step",
+  "description": "This is the moment your body knows what your mind won't admit. When you catch yourself staring at doorways, measuring distances you haven't decided to cross. The self that hasn't named itself yet, but already feels too large for where it stands.",
+  "image": "01_06_Indigo_FirstStep.png",
+  "edition": 6,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Indigo"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "emergence / introspection"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "First Step"
+    }
+  ],
+  "lore_title": "The Room Before The Room",
+  "threshold_note": "Between the last time you'll sleep in certain sheets and knowing it.",
+  "collector_meaning": "You hold the exact second before everything shifts \u2014 when the air changes but the weather hasn't broken yet. Some moments are heavier than others."
+}

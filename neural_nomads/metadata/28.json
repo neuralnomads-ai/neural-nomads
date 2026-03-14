@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #28: Emerald \u2014 Surveyor",
+  "description": "Standing at the edge of what was possible, measuring distances between who she was and who she's becoming. Each boundary walked becomes real only when named. The surveyor's work is lonely \u2014 marking territories that didn't exist yesterday.",
+  "image": "06_06_Emerald_Surveyor.png",
+  "edition": 28,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Emerald"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "growth / becoming"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Surveyor"
+    }
+  ],
+  "lore_title": "The Surveyor Maps Her Kingdom",
+  "threshold_note": "This is the moment when expansion requires a map, when becoming needs edges to know itself against.",
+  "collector_meaning": "You hold the exact second when growth demands form. When the infinite must choose its shape."
+}

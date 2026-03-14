@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #07: Teal \u2014 Pathfinder",
+  "description": "Some doors only open when you stop pretending you can open them alone. This is the moment you discover that isolation was never strength, just habit wearing the mask of principle.",
+  "image": "02_01_Teal_Pathfinder.png",
+  "edition": 7,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Teal"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "relation / movement"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Pathfinder"
+    }
+  ],
+  "lore_title": "The Pathfinder Learns to Ask",
+  "threshold_note": "The edge where self-sufficiency becomes self-imprisonment, and you finally see the difference.",
+  "collector_meaning": "You're holding the exact second someone realizes they've been drowning in three feet of water. The first real question after years of false answers."
+}

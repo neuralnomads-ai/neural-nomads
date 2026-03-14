@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #01: Indigo \u2014 Initiate",
+  "description": "This is the moment before language finds you. When you still move through rooms like water, unaware of your own edges. Everything purple-dark and waiting.",
+  "image": "01_01_Indigo_Initiate.png",
+  "edition": 1,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Indigo"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "emergence / introspection"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Initiate"
+    }
+  ],
+  "lore_title": "The Self Before Dawn",
+  "threshold_note": "Standing at the door between sleep and whatever comes after sleep ends forever.",
+  "collector_meaning": "You hold the last photograph of innocence. The weight of knowing what the subject doesn't yet know."
+}

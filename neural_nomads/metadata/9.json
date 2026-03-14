@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #09: Teal \u2014 Exchange",
+  "description": "You learn you've been hoarding the wrong things. The real exchange happens in the space between two people seeing each other clearly, without flinching. This is the moment you discover what actually passes between souls.",
+  "image": "02_03_Teal_Exchange.png",
+  "edition": 9,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Teal"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "relation / movement"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Exchange"
+    }
+  ],
+  "lore_title": "The Currency of Witnessing",
+  "threshold_note": "The edge where transaction becomes transformation.",
+  "collector_meaning": "You hold the instant someone realizes that being truly seen costs everything and gives everything back. This piece knows what you're willing to trade."
+}

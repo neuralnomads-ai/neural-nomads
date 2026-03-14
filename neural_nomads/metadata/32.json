@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #32: Legendary \u2014 The Origin",
+  "description": "Everything that will be said was already here, waiting in the silence before language began. This is the moment of standing at the edge of speech itself, knowing that to name something is to begin losing it.",
+  "image": "08_01_Legendary_TheOrigin.png",
+  "edition": 32,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "transcendence / sacred architectural culmination"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "The Origin"
+    }
+  ],
+  "lore_title": "Before the first word",
+  "threshold_note": "The boundary between what always was and what must now be spoken.",
+  "collector_meaning": "You hold the pause before the first confession. The weight of every word that will follow lives here."
+}

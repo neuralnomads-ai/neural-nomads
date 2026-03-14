@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #10: Violet \u2014 Reflection",
+  "description": "There are words forming behind your teeth that will change everything once spoken. This is the color of that pressure \u2014 violet like a bruise that hasn't surfaced yet, like the sky just before it breaks.",
+  "image": "03_01_Violet_Reflection.png",
+  "edition": 10,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Violet"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "internal tension / containment"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Reflection"
+    }
+  ],
+  "lore_title": "The Violet Hour Before Speaking",
+  "threshold_note": "Standing at the edge between what you've always been and what you're about to admit you've become.",
+  "collector_meaning": "You hold the exact moment when silence becomes too heavy to carry. Some transformations begin with this specific shade of waiting."
+}

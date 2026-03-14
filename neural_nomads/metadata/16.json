@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #16: Ember \u2014 Spark",
+  "description": "Some moments arrive with such precision they split time into before and after. This is the sound of a match head dragging across rough surface, the millisecond between friction and flame.",
+  "image": "04_03_Ember_Spark.png",
+  "edition": 16,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Ember"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "pressure / ignition"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Spark"
+    }
+  ],
+  "lore_title": "The Exact Temperature of Change",
+  "threshold_note": "The last breath taken as one person, the first taken as another.",
+  "collector_meaning": "You hold the instant when everything shifts\u2014not the story of it, but the sensation itself. The weight of potential energy converting to kinetic."
+}

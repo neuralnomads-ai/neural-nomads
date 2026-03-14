@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #27: Emerald \u2014 Analyst",
+  "description": "Twenty pieces in, and the word finally forms. Not the easy yes of before \u2014 this one has teeth, knows what it costs. The analyst measures what can be built from here.",
+  "image": "06_05_Emerald_Analyst.png",
+  "edition": 27,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Emerald"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "growth / becoming"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Analyst"
+    }
+  ],
+  "lore_title": "The Shape of Yes",
+  "threshold_note": "Between the last no and the first real yes.",
+  "collector_meaning": "You hold the moment when acceptance stops being surrender and becomes architecture. The analyst in you knows: some bridges only appear after burning."
+}

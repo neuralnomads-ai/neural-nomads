@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #23: Emerald \u2014 Sentinel",
+  "description": "Some growth demands a guardian. The parts of you that are still forming need protection from the parts that would devour them whole. This is the hour when you become your own sentry.",
+  "image": "06_01_Emerald_Sentinel.png",
+  "edition": 23,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Emerald"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "growth / becoming"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Sentinel"
+    }
+  ],
+  "lore_title": "The Sentinel Keeps Watch",
+  "threshold_note": "The edge between protecting what's tender and building walls that will later need breaking.",
+  "collector_meaning": "You hold the moment when someone learned to stand guard over their own becoming. The weight of necessary vigilance, before trust returns."
+}

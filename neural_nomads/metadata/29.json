@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #29: Monochrome \u2014 Passage",
+  "description": "Everything that wasn't bone had to burn. This is what remained when the smoke cleared \u2014 clean lines where chaos used to live, silence where the shouting was.",
+  "image": "07_01_Monochrome_Passage.png",
+  "edition": 29,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Monochrome"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "reduction / structural resolution"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Passage"
+    }
+  ],
+  "lore_title": "The Architecture of Letting Go",
+  "threshold_note": "The moment you discover that emptiness has its own gravity.",
+  "collector_meaning": "You hold what someone looked like after they stopped pretending. Some transformations leave marks; others leave space."
+}

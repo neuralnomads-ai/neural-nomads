@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #11: Violet \u2014 Insight",
+  "description": "Something behind my eyes has turned the color of bruises healing backwards. I sit very still in rooms where everyone else is moving, watching them through this new filter that makes their words sound like they're coming from underwater.",
+  "image": "03_02_Violet_Insight.png",
+  "edition": 11,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Violet"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "internal tension / containment"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Insight"
+    }
+  ],
+  "lore_title": "The Violet Hour Arrives",
+  "threshold_note": "The moment when knowing arrives before language does.",
+  "collector_meaning": "You hold the exact second when understanding floods in but the mouth stays closed. This is what it costs to see clearly while staying silent."
+}

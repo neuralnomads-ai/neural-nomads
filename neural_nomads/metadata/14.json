@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #14: Ember \u2014 Resolve",
+  "description": "Some promises catch fire from the inside out. This is the sixth hour \u2014 when what you swore to protect becomes the thing that must transform, and you understand that keeping your word might mean letting it burn.",
+  "image": "04_01_Ember_Resolve.png",
+  "edition": 14,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Ember"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "pressure / ignition"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Resolve"
+    }
+  ],
+  "lore_title": "The Contracts We Keep Burning",
+  "threshold_note": "The edge where loyalty becomes fuel.",
+  "collector_meaning": "You hold the moment when resolve stops being about holding on. When the truest thing you can do is let the fire have what it needs."
+}

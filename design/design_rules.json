@@ -1,0 +1,21 @@
+{
+  "mode": "shadow",
+  "watch_paths": [
+    "neural_nomads/metadata",
+    "neural_nomads/content/lore",
+    "neural_nomads/dist",
+    "neural_nomads/assets/images"
+  ],
+  "ignored_paths": [
+    ".DS_Store",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".git"
+  ],
+  "site_index": "site/index.html",
+  "site_css": "site/design_autonomous.css",
+  "min_hours_between_live_changes": 12,
+  "check_interval_seconds": 600,
+  "max_changed_files_for_auto_live": 25
+}

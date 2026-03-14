@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #12: Violet \u2014 Threshold Seer",
+  "description": "This is the color of pressure before it speaks. The exact shade of waiting when your whole body knows what your mouth won't say. Made in the fourth hour before dawn, when the walls get thin.",
+  "image": "03_03_Violet_ThresholdSeer.png",
+  "edition": 12,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Violet"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "internal tension / containment"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Threshold Seer"
+    }
+  ],
+  "lore_title": "The Violet Hour Arrives",
+  "threshold_note": "Standing at the edge where silence becomes too heavy to carry.",
+  "collector_meaning": "You hold the moment before the dam breaks. The last second of holding it all in."
+}

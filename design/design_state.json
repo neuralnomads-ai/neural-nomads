@@ -1,0 +1,408 @@
+{
+  "mode": "shadow",
+  "last_material_change": "2026-03-14T03:22:40.833794",
+  "last_live_design_at": null,
+  "last_shadow_design_at": "2026-03-14T03:22:40.879739",
+  "last_phase": "mystique",
+  "last_fingerprint": "b6a104dc3de3212a6e6d70bd265a721f94b173bdb26cee21232f499439898c68",
+  "last_changed_files": [],
+  "last_design_score": 82,
+  "watched_files": {
+    "neural_nomads/metadata/20.json": {
+      "size": 961,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/16.json": {
+      "size": 861,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/6.json": {
+      "size": 940,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/7.json": {
+      "size": 890,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/17.json": {
+      "size": 892,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/21.json": {
+      "size": 903,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/10.json": {
+      "size": 925,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/26.json": {
+      "size": 856,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/30.json": {
+      "size": 918,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/31.json": {
+      "size": 834,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/27.json": {
+      "size": 818,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/1.json": {
+      "size": 799,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/11.json": {
+      "size": 903,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/2.json": {
+      "size": 907,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/28.json": {
+      "size": 906,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/12.json": {
+      "size": 825,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/32.json": {
+      "size": 879,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/24.json": {
+      "size": 860,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/25.json": {
+      "size": 908,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/33.json": {
+      "size": 892,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/13.json": {
+      "size": 942,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/29.json": {
+      "size": 834,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/3.json": {
+      "size": 900,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/8.json": {
+      "size": 876,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/22.json": {
+      "size": 952,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/18.json": {
+      "size": 922,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/4.json": {
+      "size": 874,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/14.json": {
+      "size": 847,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/15.json": {
+      "size": 880,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/5.json": {
+      "size": 913,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/19.json": {
+      "size": 846,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/23.json": {
+      "size": 877,
+      "mtime": 1773458471
+    },
+    "neural_nomads/metadata/9.json": {
+      "size": 881,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/20.json": {
+      "size": 798,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/16.json": {
+      "size": 692,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/6.json": {
+      "size": 767,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/7.json": {
+      "size": 714,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/17.json": {
+      "size": 721,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/21.json": {
+      "size": 720,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/10.json": {
+      "size": 750,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/26.json": {
+      "size": 685,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/30.json": {
+      "size": 730,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/31.json": {
+      "size": 651,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/27.json": {
+      "size": 644,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/1.json": {
+      "size": 622,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/11.json": {
+      "size": 725,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/2.json": {
+      "size": 733,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/28.json": {
+      "size": 736,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/12.json": {
+      "size": 632,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/32.json": {
+      "size": 678,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/24.json": {
+      "size": 684,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/25.json": {
+      "size": 739,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/33.json": {
+      "size": 691,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/13.json": {
+      "size": 759,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/29.json": {
+      "size": 652,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/3.json": {
+      "size": 727,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/8.json": {
+      "size": 716,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/22.json": {
+      "size": 810,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/18.json": {
+      "size": 745,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/4.json": {
+      "size": 701,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/14.json": {
+      "size": 660,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/15.json": {
+      "size": 708,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/5.json": {
+      "size": 762,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/19.json": {
+      "size": 671,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/23.json": {
+      "size": 710,
+      "mtime": 1773458471
+    },
+    "neural_nomads/content/lore/9.json": {
+      "size": 711,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/04_03_Ember_Spark.png": {
+      "size": 1700993,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/03_03_Violet_ThresholdSeer.png": {
+      "size": 1003849,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/02_01_Teal_Pathfinder.png": {
+      "size": 1500138,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/01_02_Indigo_Threshold.png": {
+      "size": 1604548,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/01_04_Indigo_Seeker.png": {
+      "size": 1739468,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/05_04_Gold_Executor.png": {
+      "size": 1694407,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/06_03_Emerald_Observer.png": {
+      "size": 1691867,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/03_02_Violet_Insight.png": {
+      "size": 1132330,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/01_06_Indigo_FirstStep.png": {
+      "size": 1413654,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/02_02_Teal_Duality.png": {
+      "size": 1600135,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/06_06_Emerald_Surveyor.png": {
+      "size": 1820750,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/03_01_Violet_Reflection.png": {
+      "size": 1136712,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/05_01_Gold_Sovereign.png": {
+      "size": 1713932,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/01_01_Indigo_Initiate.png": {
+      "size": 1939283,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/05_05_Gold_Imperium.png": {
+      "size": 1628501,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/01_05_Indigo_Watcher.png": {
+      "size": 1566536,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/08_02_Legendary_TheAxis.png": {
+      "size": 878020,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/04_02_Ember_Ascension.png": {
+      "size": 1694102,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/05_03_Gold_Dominion.png": {
+      "size": 1611177,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/06_02_Emerald_Archivist.png": {
+      "size": 1699368,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/05_02_Gold_Ascendant.png": {
+      "size": 1659220,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/02_03_Teal_Exchange.png": {
+      "size": 1414187,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/01_03_Indigo_Aspirant.png": {
+      "size": 1743839,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/03_04_Violet_Stillness.png": {
+      "size": 1138814,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/07_01_Monochrome_Passage.png": {
+      "size": 1505630,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/04_04_Ember_Confrontation.png": {
+      "size": 1563112,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/06_01_Emerald_Sentinel.png": {
+      "size": 1782182,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/06_05_Emerald_Analyst.png": {
+      "size": 1741129,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/07_02_Monochrome_Void.png": {
+      "size": 1470451,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/06_04_Emerald_Warden.png": {
+      "size": 1695757,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/07_03_Monochrome_Oblivion.png": {
+      "size": 1445950,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/08_01_Legendary_TheOrigin.png": {
+      "size": 874131,
+      "mtime": 1773458471
+    },
+    "neural_nomads/assets/images/04_01_Ember_Resolve.png": {
+      "size": 1347465,
+      "mtime": 1773458471
+    }
+  }
+}

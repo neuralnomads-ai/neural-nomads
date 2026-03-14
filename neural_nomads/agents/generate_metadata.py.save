@@ -1,0 +1,29 @@
+import os
+import json
+
+image_dir = "assets/images"
+metadata_dir = "metadata"
+
+os.makedirs(metadata_dir, exist_ok=True)
+
+files = sorted(os.listdir(image_dir))
+
+for i, file in enumerate(files, start=1):
+
+    name = os.path.splitext(file)[0]
+
+    data = {
+        "name": f"Neural Nomad #{i}",
+        "description": "A traveler of the Threshold — wandering between machine intelligence and human consciousness.",
+        "image": file,
+        "attributes": [
+            {"trait_type": "Collection", "value": "Neural Nomads"},
+            {"trait_type": "Generation", "value": "Genesis"}
+        ]
+    }
+
+    with open(f"{metadata_dir}/{i}.json", "w") as f:
+        json.dump(data, f, indent=4)
+
+print("Metadata generated successfully.")
+

@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #17: Ember \u2014 Confrontation",
+  "description": "This is the hour when what you've been avoiding sits down across from you. Not hostile, not kind. Just present, filling the room with its familiar weight. You know this conversation by heart, but tonight the words will be different.",
+  "image": "04_04_Ember_Confrontation.png",
+  "edition": 17,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Ember"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "pressure / ignition"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Confrontation"
+    }
+  ],
+  "lore_title": "The Thing That Won't Leave",
+  "threshold_note": "The last moment you can still pretend it's not there.",
+  "collector_meaning": "To hold this piece is to recognize your own midnight visitor. The one that waits patiently while you exhaust every distraction."
+}

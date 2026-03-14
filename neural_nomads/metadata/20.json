@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #20: Gold \u2014 Dominion",
+  "description": "After the burning, after the breaking, comes this: standing in your own authority at last. The crown was always there, waiting beneath what you thought you had to be. Now you wear it like something you were born knowing how to carry.",
+  "image": "05_03_Gold_Dominion.png",
+  "edition": 20,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "integration / clarity"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Dominion"
+    }
+  ],
+  "lore_title": "The Kingdom You Inherit Alone",
+  "threshold_note": "Between the person you assembled for others and the one who was always waiting underneath.",
+  "collector_meaning": "You hold the moment someone stops asking permission to be themselves. This is what sovereignty costs \u2014 everything false burned away until only the true thing remains."
+}

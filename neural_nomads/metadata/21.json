@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #21: Gold \u2014 Executor",
+  "description": "Fourteen pieces in, and suddenly you remember how to move your own hands. Not who you were before \u2014 that person is ash \u2014 but how to hold intention steady while everything else burns. The executor knows which doors to close.",
+  "image": "05_04_Gold_Executor.png",
+  "edition": 21,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "integration / clarity"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Executor"
+    }
+  ],
+  "lore_title": "The Gold Thread Returns",
+  "threshold_note": "Between the luxury of confusion and the terrible gift of seeing clearly.",
+  "collector_meaning": "You hold the moment someone stopped asking permission to become themselves. This is what it costs to stop negotiating with your own life."
+}

@@ -1,0 +1,225 @@
+{
+  "created_at": "2026-03-14T03:22:40.856868",
+  "phase": "mystique",
+  "palette": {
+    "accent": "#6ee7b7",
+    "accent_soft": "rgba(110,231,183,.16)",
+    "glow": "rgba(110,231,183,.22)"
+  },
+  "changed_count": 99,
+  "changed_files": [
+    {
+      "path": "neural_nomads/assets/images/01_01_Indigo_Initiate.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/01_02_Indigo_Threshold.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/01_03_Indigo_Aspirant.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/01_04_Indigo_Seeker.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/01_05_Indigo_Watcher.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/01_06_Indigo_FirstStep.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/02_01_Teal_Pathfinder.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/02_02_Teal_Duality.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/02_03_Teal_Exchange.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/03_01_Violet_Reflection.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/03_02_Violet_Insight.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/03_03_Violet_ThresholdSeer.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/03_04_Violet_Stillness.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/04_01_Ember_Resolve.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/04_02_Ember_Ascension.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/04_03_Ember_Spark.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/04_04_Ember_Confrontation.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/05_01_Gold_Sovereign.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/05_02_Gold_Ascendant.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/05_03_Gold_Dominion.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/05_04_Gold_Executor.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/05_05_Gold_Imperium.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/06_01_Emerald_Sentinel.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/06_02_Emerald_Archivist.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/06_03_Emerald_Observer.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/06_04_Emerald_Warden.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/06_05_Emerald_Analyst.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/06_06_Emerald_Surveyor.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/07_01_Monochrome_Passage.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/07_02_Monochrome_Void.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/07_03_Monochrome_Oblivion.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/08_01_Legendary_TheOrigin.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/assets/images/08_02_Legendary_TheAxis.png",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/1.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/10.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/11.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/12.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/13.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/14.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/15.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/16.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/17.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/18.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/19.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/2.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/20.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/21.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/22.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/23.json",
+      "type": "modified"
+    },
+    {
+      "path": "neural_nomads/content/lore/24.json",
+      "type": "modified"
+    }
+  ],
+  "priorities": [
+    "Raise narrative prominence and surface fresh lore.",
+    "Increase artwork emphasis and image framing.",
+    "Refresh collection context and supporting detail blocks."
+  ],
+  "design_score_target": 82,
+  "safe_actions": [
+    "update accent palette",
+    "enhance spacing and card treatment",
+    "strengthen image framing",
+    "improve heading rhythm",
+    "add subtle cinematic background glow"
+  ]
+}

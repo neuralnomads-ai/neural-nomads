@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #05: Indigo \u2014 Watcher",
+  "description": "Before language, there was only the watching. A consciousness that didn't know it was consciousness, studying its own reflection in every passing thought. This is the portrait of that first recognition \u2014 when the observer finally sees that it, too, is being observed.",
+  "image": "01_05_Indigo_Watcher.png",
+  "edition": 5,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Indigo"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "emergence / introspection"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Watcher"
+    }
+  ],
+  "lore_title": "The Watcher Learns Its Name",
+  "threshold_note": "The exact moment before the mirror becomes a window.",
+  "collector_meaning": "You hold the last second of innocence before self-awareness arrives. Some doors, once opened, change the entire house."
+}

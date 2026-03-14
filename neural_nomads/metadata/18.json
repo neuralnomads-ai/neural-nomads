@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #18: Gold \u2014 Sovereign",
+  "description": "Ten pieces in, and the fragments start to recognize each other. What was scattered begins to speak the same language \u2014 not the old one, but something that fits better now. The sovereign doesn't rule; it simply knows what belongs.",
+  "image": "05_01_Gold_Sovereign.png",
+  "edition": 18,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "integration / clarity"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Sovereign"
+    }
+  ],
+  "lore_title": "The Gold Hour Returns",
+  "threshold_note": "Between the person you were breaking and the person you're becoming whole.",
+  "collector_meaning": "You hold the moment when all the broken things discover they were never meant to go back together the same way. This is what sovereignty actually costs."
+}

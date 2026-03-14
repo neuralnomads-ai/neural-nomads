@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #19: Gold \u2014 Ascendant",
+  "description": "Everything that was scattered begins to recognize itself again. The pieces don't fit the way they used to \u2014 they form something else now, something that knows both sides of the mirror.",
+  "image": "05_02_Gold_Ascendant.png",
+  "edition": 19,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "integration / clarity"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Ascendant"
+    }
+  ],
+  "lore_title": "The Gold Thread Returns",
+  "threshold_note": "Between the person you were breaking and the person you are becoming.",
+  "collector_meaning": "You hold the moment when the fever breaks and clarity arrives \u2014 not as comfort, but as clean light through empty rooms."
+}

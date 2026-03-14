@@ -1,0 +1,23 @@
+{
+  "name": "Neural Nomad #31: Monochrome \u2014 Oblivion",
+  "description": "Everything that could burn has burned. What remains has a different quality \u2014 not chosen, but revealed. The way bone shows through after everything soft is gone.",
+  "image": "07_03_Monochrome_Oblivion.png",
+  "edition": 31,
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Monochrome"
+    },
+    {
+      "trait_type": "Tier Arc",
+      "value": "reduction / structural resolution"
+    },
+    {
+      "trait_type": "Piece",
+      "value": "Oblivion"
+    }
+  ],
+  "lore_title": "What the Fire Couldn't Take",
+  "threshold_note": "The moment when stripping away becomes arrival.",
+  "collector_meaning": "You hold what survived the necessary destruction. Some transformations require us to become unrecognizable, even to ourselves."
+}
