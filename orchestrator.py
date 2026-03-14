@@ -70,8 +70,38 @@ def build_and_deploy():
 
     log('Deploying to Vercel...')
     r = subprocess.run(
-        ['vercel', '--yes', '--prod'],
+        ['vercel', '--yes', '--prod', '--scope', 'sapienholdingsllc-1240s-projects'],
         cwd=site,
+        capture_output=True,
+        text=True
+    )
+    log(r.stdout.strip() or r.stderr.strip())
+
+def run_content_calendar():
+    log('Running content calendar...')
+    r = subprocess.run(
+        ['python3', 'agents/content_calendar.py'],
+        cwd=base,
+        capture_output=True,
+        text=True
+    )
+    log(r.stdout.strip() or r.stderr.strip())
+
+def check_mints():
+    log('Checking for new mints...')
+    r = subprocess.run(
+        ['python3', 'agents/mint_monitor.py'],
+        cwd=base,
+        capture_output=True,
+        text=True
+    )
+    log(r.stdout.strip() or r.stderr.strip())
+
+def evolve_phase():
+    log('Checking phase evolution...')
+    r = subprocess.run(
+        ['python3', 'agents/phase_evolution.py'],
+        cwd=base,
         capture_output=True,
         text=True
     )
@@ -86,12 +116,23 @@ while True:
         state = load_state()
         now = datetime.now().isoformat()
 
+        # Content calendar replaces simple farcaster post (every 6 hours)
         if hours_since(state.get('last_post')) >= 6:
-            post_farcaster()
+            run_content_calendar()
             generate_twitter_draft()
             state['last_post'] = now
             save_state(state)
 
+        # Check for mints every cycle (30 min)
+        check_mints()
+
+        # Evolve site phase daily
+        if hours_since(state.get('last_phase_check')) >= 24:
+            evolve_phase()
+            state['last_phase_check'] = now
+            save_state(state)
+
+        # Rebuild and deploy every 12 hours
         if hours_since(state.get('last_build')) >= 12:
             build_and_deploy()
             state['last_build'] = now

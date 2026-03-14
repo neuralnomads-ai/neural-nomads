@@ -1,13 +1,13 @@
-/* Autonomous design layer | phase: mystique | generated: 2026-03-14T03:55:27.700005 */
+/* Autonomous design layer | phase: mystique | days_left: 37 | generated: 2026-03-14T23:15:28.304214 */
 :root {
-  --nn-accent: #6ee7b7;
-  --nn-accent-soft: rgba(110,231,183,.16);
-  --nn-glow: rgba(110,231,183,.22);
+  --nn-accent: #2dd4bf;
+  --nn-accent-soft: rgba(45,212,191,.14);
+  --nn-glow: rgba(45,212,191,.20);
   --nn-bg-1: #060816;
   --nn-bg-2: #0b1020;
   --nn-text: #e8edf7;
   --nn-muted: #9ca9c3;
-  --nn-border: rgba(255,255,255,.10);
+  --nn-border: rgba(45,212,191,.10);
 }
 
 html {
@@ -17,9 +17,10 @@ html {
 body {
   color: var(--nn-text);
   background:
+    radial-gradient(ellipse at 50% 0%, rgba(45,212,191,.06) 0%, transparent 60%),
     radial-gradient(circle at 20% 10%, var(--nn-glow), transparent 28%),
-    radial-gradient(circle at 80% 0%, rgba(255,255,255,.05), transparent 24%),
-    linear-gradient(180deg, var(--nn-bg-1), var(--nn-bg-2));
+    radial-gradient(circle at 80% 0%, rgba(99,102,241,.12), transparent 24%),
+    linear-gradient(170deg, var(--nn-bg-1), var(--nn-bg-2));
   background-attachment: fixed;
 }
 
@@ -98,6 +99,7 @@ hr {
   border-top: 1px solid var(--nn-border);
 }
 
+/* --- Phase badge --- */
 .nn-phase-badge {
   display: inline-flex;
   align-items: center;
@@ -118,6 +120,37 @@ hr {
   border-radius: 999px;
   background: var(--nn-accent);
   box-shadow: 0 0 18px var(--nn-accent);
+}
+
+/* --- Hero section phase overlay --- */
+.hero, #hero, [data-section="hero"] {
+  position: relative;
+}
+
+.hero::after, #hero::after, [data-section="hero"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(45,212,191,.06) 0%, transparent 60%);
+  opacity: 0.4;
+  border-radius: inherit;
+}
+
+/* --- Countdown section intensity --- */
+.countdown, #countdown, [data-section="countdown"] {
+  border-color: var(--nn-accent) !important;
+  box-shadow:
+    0 0 calc(24px * 0.4) var(--nn-glow),
+    0 12px 40px rgba(0,0,0,.22);
+}
+
+/* --- Card border accent glow --- */
+.card:hover, .panel:hover, article:hover {
+  border-color: var(--nn-accent);
+  box-shadow:
+    0 0 20px var(--nn-glow),
+    0 18px 54px rgba(0,0,0,.28);
 }
 
 @media (max-width: 768px) {
