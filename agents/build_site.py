@@ -10,11 +10,14 @@ NFT_BASE = BASE / "neural_nomads"
 IMAGES_DIR = NFT_BASE / "assets" / "images"
 METADATA_DIR = NFT_BASE / "metadata"
 
-SITE_IMAGES = SITE / "images"
-CITIZENS_PAGE = SITE / "citizens" / "index.html"
+SITE_CITIZENS = SITE / "citizens"
+SITE_IMAGES = SITE_CITIZENS / "images"
+CITIZENS_PAGE = SITE_CITIZENS / "index.html"
 
 SITE_IMAGES.mkdir(parents=True, exist_ok=True)
 CITIZENS_PAGE.parent.mkdir(parents=True, exist_ok=True)
+
+REQUIRED_KEYS = {"name", "description", "image", "edition", "attributes"}
 
 def attr_value(attrs, trait_type):
     for a in attrs:
@@ -22,14 +25,34 @@ def attr_value(attrs, trait_type):
             return a.get("value", "")
     return ""
 
-# Copy all images into live site
 image_files = sorted(IMAGES_DIR.glob("*.png"))
+meta_files = sorted(METADATA_DIR.glob("*.json"), key=lambda p: int(p.stem))
+
+if len(image_files) != len(meta_files):
+    raise SystemExit(f"Count mismatch: {len(image_files)} images vs {len(meta_files)} metadata files.")
+
+available_images = {p.name for p in image_files}
+seen_editions = set()
+cards = []
+
+for mf in meta_files:
+    data = json.loads(mf.read_text(encoding="utf-8"))
+
+    missing = REQUIRED_KEYS - data.keys()
+    if missing:
+        raise SystemExit(f"Metadata file {mf.name} is missing keys: {sorted(missing)}")
+
+    edition = data["edition"]
+    if edition in seen_editions:
+        raise SystemExit(f"Duplicate edition found: {edition}")
+    seen_editions.add(edition)
+
+    image_name = data["image"]
+    if image_name not in available_images:
+        raise SystemExit(f"Metadata file {mf.name} references missing image: {image_name}")
+
 for img in image_files:
     shutil.copy2(img, SITE_IMAGES / img.name)
-
-# Read all metadata files
-meta_files = sorted(METADATA_DIR.glob("*.json"), key=lambda p: int(p.stem))
-cards = []
 
 for mf in meta_files:
     data = json.loads(mf.read_text(encoding="utf-8"))
@@ -45,14 +68,15 @@ for mf in meta_files:
     tier = attr_value(attrs, "Tier")
     piece = attr_value(attrs, "Piece")
     tier_arc = attr_value(attrs, "Tier Arc")
+    edition = data.get("edition", mf.stem)
 
     short_desc = description[:180] + ("..." if len(description) > 180 else "")
 
     cards.append(f"""
     <article class="card">
-      <img class="thumb" src="/images/{html.escape(image)}" alt="{html.escape(name)}" />
+      <img class="thumb" src="images/{html.escape(image)}" alt="{html.escape(name)}" />
       <div class="meta">
-        <div class="eyebrow">{html.escape(tier)} · {html.escape(piece)}</div>
+        <div class="eyebrow">#{edition} · {html.escape(tier)} · {html.escape(piece)}</div>
         <h2>{html.escape(name)}</h2>
         <div class="lore">{html.escape(lore_title)}</div>
         <p class="desc">{html.escape(short_desc)}</p>
@@ -87,35 +111,21 @@ html_doc = f"""<!DOCTYPE html>
       --muted: #a7b0c6;
       --accent: #9b6bff;
     }}
-
     * {{ box-sizing: border-box; }}
-
     body {{
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: Arial, sans-serif;
     }}
-
     .wrap {{
       max-width: 1380px;
       margin: 0 auto;
       padding: 40px 24px 80px;
     }}
-
-    a {{
-      color: #9fd3ff;
-      text-decoration: none;
-    }}
-
-    .topbar {{
-      margin-bottom: 24px;
-    }}
-
     .hero {{
       margin-bottom: 28px;
     }}
-
     .eyebrow-top {{
       display: inline-block;
       border: 1px solid var(--border);
@@ -127,13 +137,11 @@ html_doc = f"""<!DOCTYPE html>
       color: var(--muted);
       margin-bottom: 16px;
     }}
-
     h1 {{
       font-size: 52px;
       line-height: 1.02;
       margin: 0 0 12px;
     }}
-
     .sub {{
       max-width: 860px;
       color: var(--muted);
@@ -141,19 +149,16 @@ html_doc = f"""<!DOCTYPE html>
       line-height: 1.5;
       margin-bottom: 12px;
     }}
-
     .count {{
       color: var(--accent);
       font-weight: 700;
       margin-bottom: 24px;
     }}
-
     .grid {{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 22px;
     }}
-
     .card {{
       background: var(--panel);
       border: 1px solid var(--border);
@@ -162,7 +167,6 @@ html_doc = f"""<!DOCTYPE html>
       display: flex;
       flex-direction: column;
     }}
-
     .thumb {{
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -170,11 +174,9 @@ html_doc = f"""<!DOCTYPE html>
       display: block;
       background: #111;
     }}
-
     .meta {{
       padding: 18px;
     }}
-
     .eyebrow {{
       color: var(--accent);
       font-size: 12px;
@@ -182,78 +184,69 @@ html_doc = f"""<!DOCTYPE html>
       letter-spacing: .08em;
       margin-bottom: 10px;
     }}
-
     h2 {{
       font-size: 22px;
       margin: 0 0 8px;
       line-height: 1.2;
     }}
-
     .lore {{
       font-size: 14px;
       color: #d6c8ff;
       margin-bottom: 12px;
       font-weight: 700;
     }}
-
     .desc {{
       color: var(--muted);
       line-height: 1.5;
-      min-height: 84px;
+      margin-bottom: 14px;
     }}
-
     .pillrow {{
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-      margin: 14px 0;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
     }}
-
     .pill {{
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 6px 10px;
       font-size: 12px;
-      color: var(--muted);
+      color: #e6e6e6;
     }}
-
     details {{
-      margin-top: 10px;
       border-top: 1px solid var(--border);
       padding-top: 12px;
     }}
-
     summary {{
       cursor: pointer;
-      color: #cfd8ff;
+      color: #d9ddff;
       font-weight: 700;
+      margin-bottom: 10px;
     }}
-
-    .details-block {{
-      margin-top: 12px;
+    .details-block p {{
       color: var(--muted);
       line-height: 1.5;
-      font-size: 14px;
+    }}
+    @media (max-width: 700px) {{
+      h1 {{ font-size: 36px; }}
+      .sub {{ font-size: 17px; }}
     }}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar"><a href="/">← Back</a></div>
-
+  <main class="wrap">
     <section class="hero">
-      <div class="eyebrow-top">Live NFT Civilization</div>
-      <h1>Citizens of Neural Nomads</h1>
+      <div class="eyebrow-top">Neural Nomads · Citizens Archive</div>
+      <h1>Neural Nomads</h1>
       <div class="sub">
-        A human-directed, AI-evolved collection. Each citizen is part artifact, part identity fragment, part signal from an emerging digital civilization.
+        A curated collection of symbolic citizens, each carrying its own threshold, lore, and collector meaning.
       </div>
-      <div class="count">{len(meta_files)} citizens currently visible through the Threshold.</div>
+      <div class="count">{len(cards)} citizens published</div>
     </section>
-
     <section class="grid">
       {''.join(cards)}
     </section>
-  </div>
+  </main>
 </body>
 </html>
 """

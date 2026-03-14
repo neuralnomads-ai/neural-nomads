@@ -214,3 +214,6 @@ logs/
 data/chroma/
 neural_nomads/metadata_backup/
 neural_nomads/project_diagnostic.txt
+design/design_state.json
+state.json
+*.pyc

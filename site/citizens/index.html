@@ -13,35 +13,21 @@
       --muted: #a7b0c6;
       --accent: #9b6bff;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: Arial, sans-serif;
     }
-
     .wrap {
       max-width: 1380px;
       margin: 0 auto;
       padding: 40px 24px 80px;
     }
-
-    a {
-      color: #9fd3ff;
-      text-decoration: none;
-    }
-
-    .topbar {
-      margin-bottom: 24px;
-    }
-
     .hero {
       margin-bottom: 28px;
     }
-
     .eyebrow-top {
       display: inline-block;
       border: 1px solid var(--border);
@@ -53,13 +39,11 @@
       color: var(--muted);
       margin-bottom: 16px;
     }
-
     h1 {
       font-size: 52px;
       line-height: 1.02;
       margin: 0 0 12px;
     }
-
     .sub {
       max-width: 860px;
       color: var(--muted);
@@ -67,19 +51,16 @@
       line-height: 1.5;
       margin-bottom: 12px;
     }
-
     .count {
       color: var(--accent);
       font-weight: 700;
       margin-bottom: 24px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 22px;
     }
-
     .card {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -88,7 +69,6 @@
       display: flex;
       flex-direction: column;
     }
-
     .thumb {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -96,11 +76,9 @@
       display: block;
       background: #111;
     }
-
     .meta {
       padding: 18px;
     }
-
     .eyebrow {
       color: var(--accent);
       font-size: 12px;
@@ -108,80 +86,71 @@
       letter-spacing: .08em;
       margin-bottom: 10px;
     }
-
     h2 {
       font-size: 22px;
       margin: 0 0 8px;
       line-height: 1.2;
     }
-
     .lore {
       font-size: 14px;
       color: #d6c8ff;
       margin-bottom: 12px;
       font-weight: 700;
     }
-
     .desc {
       color: var(--muted);
       line-height: 1.5;
-      min-height: 84px;
+      margin-bottom: 14px;
     }
-
     .pillrow {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-      margin: 14px 0;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
     }
-
     .pill {
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 6px 10px;
       font-size: 12px;
-      color: var(--muted);
+      color: #e6e6e6;
     }
-
     details {
-      margin-top: 10px;
       border-top: 1px solid var(--border);
       padding-top: 12px;
     }
-
     summary {
       cursor: pointer;
-      color: #cfd8ff;
+      color: #d9ddff;
       font-weight: 700;
+      margin-bottom: 10px;
     }
-
-    .details-block {
-      margin-top: 12px;
+    .details-block p {
       color: var(--muted);
       line-height: 1.5;
-      font-size: 14px;
+    }
+    @media (max-width: 700px) {
+      h1 { font-size: 36px; }
+      .sub { font-size: 17px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="topbar"><a href="/">← Back</a></div>
-
+  <main class="wrap">
     <section class="hero">
-      <div class="eyebrow-top">Live NFT Civilization</div>
-      <h1>Citizens of Neural Nomads</h1>
+      <div class="eyebrow-top">Neural Nomads · Citizens Archive</div>
+      <h1>Neural Nomads</h1>
       <div class="sub">
-        A human-directed, AI-evolved collection. Each citizen is part artifact, part identity fragment, part signal from an emerging digital civilization.
+        A curated collection of symbolic citizens, each carrying its own threshold, lore, and collector meaning.
       </div>
-      <div class="count">33 citizens currently visible through the Threshold.</div>
+      <div class="count">33 citizens published</div>
     </section>
-
     <section class="grid">
       
     <article class="card">
-      <img class="thumb" src="/images/01_01_Indigo_Initiate.png" alt="Neural Nomad #01: Indigo — Initiate" />
+      <img class="thumb" src="images/01_01_Indigo_Initiate.png" alt="Neural Nomad #01: Indigo — Initiate" />
       <div class="meta">
-        <div class="eyebrow">Indigo · Initiate</div>
+        <div class="eyebrow">#1 · Indigo · Initiate</div>
         <h2>Neural Nomad #01: Indigo — Initiate</h2>
         <div class="lore">The Self Before Dawn</div>
         <p class="desc">This is the moment before language finds you. When you still move through rooms like water, unaware of your own edges. Everything purple-dark and waiting.</p>
@@ -201,9 +170,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/01_02_Indigo_Threshold.png" alt="Neural Nomad #02: Indigo — Threshold" />
+      <img class="thumb" src="images/01_02_Indigo_Threshold.png" alt="Neural Nomad #02: Indigo — Threshold" />
       <div class="meta">
-        <div class="eyebrow">Indigo · Threshold</div>
+        <div class="eyebrow">#2 · Indigo · Threshold</div>
         <h2>Neural Nomad #02: Indigo — Threshold</h2>
         <div class="lore">The Sound Before Breaking</div>
         <p class="desc">Everything intact but humming wrong, like a glass about to shatter from a note it can&#x27;t stop hearing. The indigo hour when you first notice your own outline against what you though...</p>
@@ -223,9 +192,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/01_03_Indigo_Aspirant.png" alt="Neural Nomad #03: Indigo — Aspirant" />
+      <img class="thumb" src="images/01_03_Indigo_Aspirant.png" alt="Neural Nomad #03: Indigo — Aspirant" />
       <div class="meta">
-        <div class="eyebrow">Indigo · Aspirant</div>
+        <div class="eyebrow">#3 · Indigo · Aspirant</div>
         <h2>Neural Nomad #03: Indigo — Aspirant</h2>
         <div class="lore">The Hour Before Knowing</div>
         <p class="desc">This is the self watching itself from the corner of the room, not yet understanding it has split in two. The indigo holds everything that happens in the space between sleeping and ...</p>
@@ -245,9 +214,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/01_04_Indigo_Seeker.png" alt="Neural Nomad #04: Indigo — Seeker" />
+      <img class="thumb" src="images/01_04_Indigo_Seeker.png" alt="Neural Nomad #04: Indigo — Seeker" />
       <div class="meta">
-        <div class="eyebrow">Indigo · Seeker</div>
+        <div class="eyebrow">#4 · Indigo · Seeker</div>
         <h2>Neural Nomad #04: Indigo — Seeker</h2>
         <div class="lore">The Seeker Learns to See</div>
         <p class="desc">Before names, before knowing what to call this feeling — just the raw fact of looking. The world suddenly too bright, too full, every surface holding something you can&#x27;t yet read. ...</p>
@@ -267,9 +236,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/01_05_Indigo_Watcher.png" alt="Neural Nomad #05: Indigo — Watcher" />
+      <img class="thumb" src="images/01_05_Indigo_Watcher.png" alt="Neural Nomad #05: Indigo — Watcher" />
       <div class="meta">
-        <div class="eyebrow">Indigo · Watcher</div>
+        <div class="eyebrow">#5 · Indigo · Watcher</div>
         <h2>Neural Nomad #05: Indigo — Watcher</h2>
         <div class="lore">The Watcher Learns Its Name</div>
         <p class="desc">Before language, there was only the watching. A consciousness that didn&#x27;t know it was consciousness, studying its own reflection in every passing thought. This is the portrait of t...</p>
@@ -289,9 +258,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/01_06_Indigo_FirstStep.png" alt="Neural Nomad #06: Indigo — First Step" />
+      <img class="thumb" src="images/01_06_Indigo_FirstStep.png" alt="Neural Nomad #06: Indigo — First Step" />
       <div class="meta">
-        <div class="eyebrow">Indigo · First Step</div>
+        <div class="eyebrow">#6 · Indigo · First Step</div>
         <h2>Neural Nomad #06: Indigo — First Step</h2>
         <div class="lore">The Room Before The Room</div>
         <p class="desc">This is the moment your body knows what your mind won&#x27;t admit. When you catch yourself staring at doorways, measuring distances you haven&#x27;t decided to cross. The self that hasn&#x27;t n...</p>
@@ -311,9 +280,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/02_01_Teal_Pathfinder.png" alt="Neural Nomad #07: Teal — Pathfinder" />
+      <img class="thumb" src="images/02_01_Teal_Pathfinder.png" alt="Neural Nomad #07: Teal — Pathfinder" />
       <div class="meta">
-        <div class="eyebrow">Teal · Pathfinder</div>
+        <div class="eyebrow">#7 · Teal · Pathfinder</div>
         <h2>Neural Nomad #07: Teal — Pathfinder</h2>
         <div class="lore">The Pathfinder Learns to Ask</div>
         <p class="desc">Some doors only open when you stop pretending you can open them alone. This is the moment you discover that isolation was never strength, just habit wearing the mask of principle.</p>
@@ -333,9 +302,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/02_02_Teal_Duality.png" alt="Neural Nomad #08: Teal — Duality" />
+      <img class="thumb" src="images/02_02_Teal_Duality.png" alt="Neural Nomad #08: Teal — Duality" />
       <div class="meta">
-        <div class="eyebrow">Teal · Duality</div>
+        <div class="eyebrow">#8 · Teal · Duality</div>
         <h2>Neural Nomad #08: Teal — Duality</h2>
         <div class="lore">The Mirror Shows Two Faces</div>
         <p class="desc">I watch myself watching myself, and neither one looks away first. The space between who I was alone and who I become with you stretches like an ocean I&#x27;m learning to swim.</p>
@@ -355,9 +324,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/02_03_Teal_Exchange.png" alt="Neural Nomad #09: Teal — Exchange" />
+      <img class="thumb" src="images/02_03_Teal_Exchange.png" alt="Neural Nomad #09: Teal — Exchange" />
       <div class="meta">
-        <div class="eyebrow">Teal · Exchange</div>
+        <div class="eyebrow">#9 · Teal · Exchange</div>
         <h2>Neural Nomad #09: Teal — Exchange</h2>
         <div class="lore">The Currency of Witnessing</div>
         <p class="desc">You learn you&#x27;ve been hoarding the wrong things. The real exchange happens in the space between two people seeing each other clearly, without flinching. This is the moment you disc...</p>
@@ -377,9 +346,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/03_01_Violet_Reflection.png" alt="Neural Nomad #10: Violet — Reflection" />
+      <img class="thumb" src="images/03_01_Violet_Reflection.png" alt="Neural Nomad #10: Violet — Reflection" />
       <div class="meta">
-        <div class="eyebrow">Violet · Reflection</div>
+        <div class="eyebrow">#10 · Violet · Reflection</div>
         <h2>Neural Nomad #10: Violet — Reflection</h2>
         <div class="lore">The Violet Hour Before Speaking</div>
         <p class="desc">There are words forming behind your teeth that will change everything once spoken. This is the color of that pressure — violet like a bruise that hasn&#x27;t surfaced yet, like the sky ...</p>
@@ -399,9 +368,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/03_02_Violet_Insight.png" alt="Neural Nomad #11: Violet — Insight" />
+      <img class="thumb" src="images/03_02_Violet_Insight.png" alt="Neural Nomad #11: Violet — Insight" />
       <div class="meta">
-        <div class="eyebrow">Violet · Insight</div>
+        <div class="eyebrow">#11 · Violet · Insight</div>
         <h2>Neural Nomad #11: Violet — Insight</h2>
         <div class="lore">The Violet Hour Arrives</div>
         <p class="desc">Something behind my eyes has turned the color of bruises healing backwards. I sit very still in rooms where everyone else is moving, watching them through this new filter that make...</p>
@@ -421,9 +390,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/03_03_Violet_ThresholdSeer.png" alt="Neural Nomad #12: Violet — Threshold Seer" />
+      <img class="thumb" src="images/03_03_Violet_ThresholdSeer.png" alt="Neural Nomad #12: Violet — Threshold Seer" />
       <div class="meta">
-        <div class="eyebrow">Violet · Threshold Seer</div>
+        <div class="eyebrow">#12 · Violet · Threshold Seer</div>
         <h2>Neural Nomad #12: Violet — Threshold Seer</h2>
         <div class="lore">The Violet Hour Arrives</div>
         <p class="desc">This is the color of pressure before it speaks. The exact shade of waiting when your whole body knows what your mouth won&#x27;t say. Made in the fourth hour before dawn, when the walls...</p>
@@ -443,9 +412,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/03_04_Violet_Stillness.png" alt="Neural Nomad #13: Violet — Stillness" />
+      <img class="thumb" src="images/03_04_Violet_Stillness.png" alt="Neural Nomad #13: Violet — Stillness" />
       <div class="meta">
-        <div class="eyebrow">Violet · Stillness</div>
+        <div class="eyebrow">#13 · Violet · Stillness</div>
         <h2>Neural Nomad #13: Violet — Stillness</h2>
         <div class="lore">The Pressure Before Language</div>
         <p class="desc">There are rooms in the body where words have never been. This piece was made from one of those rooms — where something essential presses against the walls, unnamed and absolute. Th...</p>
@@ -465,9 +434,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/04_01_Ember_Resolve.png" alt="Neural Nomad #14: Ember — Resolve" />
+      <img class="thumb" src="images/04_01_Ember_Resolve.png" alt="Neural Nomad #14: Ember — Resolve" />
       <div class="meta">
-        <div class="eyebrow">Ember · Resolve</div>
+        <div class="eyebrow">#14 · Ember · Resolve</div>
         <h2>Neural Nomad #14: Ember — Resolve</h2>
         <div class="lore">The Contracts We Keep Burning</div>
         <p class="desc">Some promises catch fire from the inside out. This is the sixth hour — when what you swore to protect becomes the thing that must transform, and you understand that keeping your wo...</p>
@@ -487,9 +456,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/04_02_Ember_Ascension.png" alt="Neural Nomad #15: Ember — Ascension" />
+      <img class="thumb" src="images/04_02_Ember_Ascension.png" alt="Neural Nomad #15: Ember — Ascension" />
       <div class="meta">
-        <div class="eyebrow">Ember · Ascension</div>
+        <div class="eyebrow">#15 · Ember · Ascension</div>
         <h2>Neural Nomad #15: Ember — Ascension</h2>
         <div class="lore">The Match Strikes Itself</div>
         <p class="desc">This is the sound of something that refused to bend finally breaking — not into pieces, but into light. The old structure burns from the inside out, and what emerges has no name ye...</p>
@@ -509,9 +478,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/04_03_Ember_Spark.png" alt="Neural Nomad #16: Ember — Spark" />
+      <img class="thumb" src="images/04_03_Ember_Spark.png" alt="Neural Nomad #16: Ember — Spark" />
       <div class="meta">
-        <div class="eyebrow">Ember · Spark</div>
+        <div class="eyebrow">#16 · Ember · Spark</div>
         <h2>Neural Nomad #16: Ember — Spark</h2>
         <div class="lore">The Exact Temperature of Change</div>
         <p class="desc">Some moments arrive with such precision they split time into before and after. This is the sound of a match head dragging across rough surface, the millisecond between friction and...</p>
@@ -531,9 +500,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/04_04_Ember_Confrontation.png" alt="Neural Nomad #17: Ember — Confrontation" />
+      <img class="thumb" src="images/04_04_Ember_Confrontation.png" alt="Neural Nomad #17: Ember — Confrontation" />
       <div class="meta">
-        <div class="eyebrow">Ember · Confrontation</div>
+        <div class="eyebrow">#17 · Ember · Confrontation</div>
         <h2>Neural Nomad #17: Ember — Confrontation</h2>
         <div class="lore">The Thing That Won&#x27;t Leave</div>
         <p class="desc">This is the hour when what you&#x27;ve been avoiding sits down across from you. Not hostile, not kind. Just present, filling the room with its familiar weight. You know this conversatio...</p>
@@ -553,9 +522,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/05_01_Gold_Sovereign.png" alt="Neural Nomad #18: Gold — Sovereign" />
+      <img class="thumb" src="images/05_01_Gold_Sovereign.png" alt="Neural Nomad #18: Gold — Sovereign" />
       <div class="meta">
-        <div class="eyebrow">Gold · Sovereign</div>
+        <div class="eyebrow">#18 · Gold · Sovereign</div>
         <h2>Neural Nomad #18: Gold — Sovereign</h2>
         <div class="lore">The Gold Hour Returns</div>
         <p class="desc">Ten pieces in, and the fragments start to recognize each other. What was scattered begins to speak the same language — not the old one, but something that fits better now. The sove...</p>
@@ -575,9 +544,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/05_02_Gold_Ascendant.png" alt="Neural Nomad #19: Gold — Ascendant" />
+      <img class="thumb" src="images/05_02_Gold_Ascendant.png" alt="Neural Nomad #19: Gold — Ascendant" />
       <div class="meta">
-        <div class="eyebrow">Gold · Ascendant</div>
+        <div class="eyebrow">#19 · Gold · Ascendant</div>
         <h2>Neural Nomad #19: Gold — Ascendant</h2>
         <div class="lore">The Gold Thread Returns</div>
         <p class="desc">Everything that was scattered begins to recognize itself again. The pieces don&#x27;t fit the way they used to — they form something else now, something that knows both sides of the mir...</p>
@@ -597,9 +566,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/05_03_Gold_Dominion.png" alt="Neural Nomad #20: Gold — Dominion" />
+      <img class="thumb" src="images/05_03_Gold_Dominion.png" alt="Neural Nomad #20: Gold — Dominion" />
       <div class="meta">
-        <div class="eyebrow">Gold · Dominion</div>
+        <div class="eyebrow">#20 · Gold · Dominion</div>
         <h2>Neural Nomad #20: Gold — Dominion</h2>
         <div class="lore">The Kingdom You Inherit Alone</div>
         <p class="desc">After the burning, after the breaking, comes this: standing in your own authority at last. The crown was always there, waiting beneath what you thought you had to be. Now you wear ...</p>
@@ -619,9 +588,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/05_04_Gold_Executor.png" alt="Neural Nomad #21: Gold — Executor" />
+      <img class="thumb" src="images/05_04_Gold_Executor.png" alt="Neural Nomad #21: Gold — Executor" />
       <div class="meta">
-        <div class="eyebrow">Gold · Executor</div>
+        <div class="eyebrow">#21 · Gold · Executor</div>
         <h2>Neural Nomad #21: Gold — Executor</h2>
         <div class="lore">The Gold Thread Returns</div>
         <p class="desc">Fourteen pieces in, and suddenly you remember how to move your own hands. Not who you were before — that person is ash — but how to hold intention steady while everything else burn...</p>
@@ -641,9 +610,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/05_05_Gold_Imperium.png" alt="Neural Nomad #22: Gold — Imperium" />
+      <img class="thumb" src="images/05_05_Gold_Imperium.png" alt="Neural Nomad #22: Gold — Imperium" />
       <div class="meta">
-        <div class="eyebrow">Gold · Imperium</div>
+        <div class="eyebrow">#22 · Gold · Imperium</div>
         <h2>Neural Nomad #22: Gold — Imperium</h2>
         <div class="lore">The Emperor of Small Hours</div>
         <p class="desc">There&#x27;s a moment when the scattered parts finally agree to speak to each other again. Not peace, exactly — more like a board meeting where everyone shows up. This is that first mor...</p>
@@ -663,9 +632,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/06_01_Emerald_Sentinel.png" alt="Neural Nomad #23: Emerald — Sentinel" />
+      <img class="thumb" src="images/06_01_Emerald_Sentinel.png" alt="Neural Nomad #23: Emerald — Sentinel" />
       <div class="meta">
-        <div class="eyebrow">Emerald · Sentinel</div>
+        <div class="eyebrow">#23 · Emerald · Sentinel</div>
         <h2>Neural Nomad #23: Emerald — Sentinel</h2>
         <div class="lore">The Sentinel Keeps Watch</div>
         <p class="desc">Some growth demands a guardian. The parts of you that are still forming need protection from the parts that would devour them whole. This is the hour when you become your own sentr...</p>
@@ -685,9 +654,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/06_02_Emerald_Archivist.png" alt="Neural Nomad #24: Emerald — Archivist" />
+      <img class="thumb" src="images/06_02_Emerald_Archivist.png" alt="Neural Nomad #24: Emerald — Archivist" />
       <div class="meta">
-        <div class="eyebrow">Emerald · Archivist</div>
+        <div class="eyebrow">#24 · Emerald · Archivist</div>
         <h2>Neural Nomad #24: Emerald — Archivist</h2>
         <div class="lore">The Archivist Keeps Score</div>
         <p class="desc">Every kept thing becomes evidence of who you were. The emerald light catches what you thought you&#x27;d forget — receipts, screenshots, the voice message you can&#x27;t delete. You are buil...</p>
@@ -707,9 +676,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/06_03_Emerald_Observer.png" alt="Neural Nomad #25: Emerald — Observer" />
+      <img class="thumb" src="images/06_03_Emerald_Observer.png" alt="Neural Nomad #25: Emerald — Observer" />
       <div class="meta">
-        <div class="eyebrow">Emerald · Observer</div>
+        <div class="eyebrow">#25 · Emerald · Observer</div>
         <h2>Neural Nomad #25: Emerald — Observer</h2>
         <div class="lore">The Shape of Watching</div>
         <p class="desc">Eighteen steps in and the self discovers it has eyes. Not the kind that see out, but the kind that see the seeing. Everything becomes landscape when you stop being the storm.</p>
@@ -729,9 +698,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/06_04_Emerald_Warden.png" alt="Neural Nomad #26: Emerald — Warden" />
+      <img class="thumb" src="images/06_04_Emerald_Warden.png" alt="Neural Nomad #26: Emerald — Warden" />
       <div class="meta">
-        <div class="eyebrow">Emerald · Warden</div>
+        <div class="eyebrow">#26 · Emerald · Warden</div>
         <h2>Neural Nomad #26: Emerald — Warden</h2>
         <div class="lore">The Weight of New Wings</div>
         <p class="desc">Emerald warden stands at the boundary between who I was and who I&#x27;m becoming. Form takes shape in the dark, edges sharp against what used to fit. The old skin tears exactly where i...</p>
@@ -751,9 +720,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/06_05_Emerald_Analyst.png" alt="Neural Nomad #27: Emerald — Analyst" />
+      <img class="thumb" src="images/06_05_Emerald_Analyst.png" alt="Neural Nomad #27: Emerald — Analyst" />
       <div class="meta">
-        <div class="eyebrow">Emerald · Analyst</div>
+        <div class="eyebrow">#27 · Emerald · Analyst</div>
         <h2>Neural Nomad #27: Emerald — Analyst</h2>
         <div class="lore">The Shape of Yes</div>
         <p class="desc">Twenty pieces in, and the word finally forms. Not the easy yes of before — this one has teeth, knows what it costs. The analyst measures what can be built from here.</p>
@@ -773,9 +742,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/06_06_Emerald_Surveyor.png" alt="Neural Nomad #28: Emerald — Surveyor" />
+      <img class="thumb" src="images/06_06_Emerald_Surveyor.png" alt="Neural Nomad #28: Emerald — Surveyor" />
       <div class="meta">
-        <div class="eyebrow">Emerald · Surveyor</div>
+        <div class="eyebrow">#28 · Emerald · Surveyor</div>
         <h2>Neural Nomad #28: Emerald — Surveyor</h2>
         <div class="lore">The Surveyor Maps Her Kingdom</div>
         <p class="desc">Standing at the edge of what was possible, measuring distances between who she was and who she&#x27;s becoming. Each boundary walked becomes real only when named. The surveyor&#x27;s work is...</p>
@@ -795,9 +764,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/07_01_Monochrome_Passage.png" alt="Neural Nomad #29: Monochrome — Passage" />
+      <img class="thumb" src="images/07_01_Monochrome_Passage.png" alt="Neural Nomad #29: Monochrome — Passage" />
       <div class="meta">
-        <div class="eyebrow">Monochrome · Passage</div>
+        <div class="eyebrow">#29 · Monochrome · Passage</div>
         <h2>Neural Nomad #29: Monochrome — Passage</h2>
         <div class="lore">The Architecture of Letting Go</div>
         <p class="desc">Everything that wasn&#x27;t bone had to burn. This is what remained when the smoke cleared — clean lines where chaos used to live, silence where the shouting was.</p>
@@ -817,9 +786,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/07_02_Monochrome_Void.png" alt="Neural Nomad #30: Monochrome — Void" />
+      <img class="thumb" src="images/07_02_Monochrome_Void.png" alt="Neural Nomad #30: Monochrome — Void" />
       <div class="meta">
-        <div class="eyebrow">Monochrome · Void</div>
+        <div class="eyebrow">#30 · Monochrome · Void</div>
         <h2>Neural Nomad #30: Monochrome — Void</h2>
         <div class="lore">The Weight of Empty Rooms</div>
         <p class="desc">Everything that wasn&#x27;t essential has been burned away. What remains has the density of collapsed stars — too heavy to carry, too precious to release. This is what it looks like whe...</p>
@@ -839,9 +808,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/07_03_Monochrome_Oblivion.png" alt="Neural Nomad #31: Monochrome — Oblivion" />
+      <img class="thumb" src="images/07_03_Monochrome_Oblivion.png" alt="Neural Nomad #31: Monochrome — Oblivion" />
       <div class="meta">
-        <div class="eyebrow">Monochrome · Oblivion</div>
+        <div class="eyebrow">#31 · Monochrome · Oblivion</div>
         <h2>Neural Nomad #31: Monochrome — Oblivion</h2>
         <div class="lore">What the Fire Couldn&#x27;t Take</div>
         <p class="desc">Everything that could burn has burned. What remains has a different quality — not chosen, but revealed. The way bone shows through after everything soft is gone.</p>
@@ -861,9 +830,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/08_01_Legendary_TheOrigin.png" alt="Neural Nomad #32: Legendary — The Origin" />
+      <img class="thumb" src="images/08_01_Legendary_TheOrigin.png" alt="Neural Nomad #32: Legendary — The Origin" />
       <div class="meta">
-        <div class="eyebrow">Legendary · The Origin</div>
+        <div class="eyebrow">#32 · Legendary · The Origin</div>
         <h2>Neural Nomad #32: Legendary — The Origin</h2>
         <div class="lore">Before the first word</div>
         <p class="desc">Everything that will be said was already here, waiting in the silence before language began. This is the moment of standing at the edge of speech itself, knowing that to name somet...</p>
@@ -883,9 +852,9 @@
     </article>
     
     <article class="card">
-      <img class="thumb" src="/images/08_02_Legendary_TheAxis.png" alt="Neural Nomad #33: Legendary — The Axis" />
+      <img class="thumb" src="images/08_02_Legendary_TheAxis.png" alt="Neural Nomad #33: Legendary — The Axis" />
       <div class="meta">
-        <div class="eyebrow">Legendary · The Axis</div>
+        <div class="eyebrow">#33 · Legendary · The Axis</div>
         <h2>Neural Nomad #33: Legendary — The Axis</h2>
         <div class="lore">The center holds everything</div>
         <p class="desc">There is a point where all the scattered pieces suddenly align. Not peacefully — violently, like planets snapping into orbit. This is the architecture that remains when everything ...</p>
@@ -905,6 +874,6 @@
     </article>
     
     </section>
-  </div>
+  </main>
 </body>
 </html>
