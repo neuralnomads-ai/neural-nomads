@@ -137,6 +137,13 @@ def interview_health():
     run_agent('interview-health', 'agents/interview_monitor.py', timeout=30)
 
 # ══════════════════════════════════════════════════════════════════════
+# SELF-HEALING ENGINE
+# ══════════════════════════════════════════════════════════════════════
+
+def run_self_heal():
+    run_agent('self-heal', 'agents/self_heal.py', timeout=180)
+
+# ══════════════════════════════════════════════════════════════════════
 # MAIN LOOP
 # ══════════════════════════════════════════════════════════════════════
 
@@ -157,6 +164,7 @@ while True:
 
         # ── Every 2 hours ─────────────────────────────────────────
         if hours_since(state.get('last_health_check')) >= 2:
+            run_self_heal()              # Self-healing: scan all projects, fix issues, send digest
             bitstax_health()             # bits.tax: health + self-healing
             teranode_health()            # teranode.ai: uptime check
             aai_health()                 # a.ai: process check + restart
@@ -179,8 +187,8 @@ while True:
             state['last_price_check'] = now
             save_state(state)
 
-        # ── Every 12 hours ────────────────────────────────────────
-        if hours_since(state.get('last_build')) >= 12:
+        # ── Every 6 hours ────────────────────────────────────────
+        if hours_since(state.get('last_build')) >= 6:
             build_and_deploy()           # Neural Nomads: rebuild + deploy
             state['last_build'] = now
             save_state(state)
