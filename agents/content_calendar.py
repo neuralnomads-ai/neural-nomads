@@ -11,7 +11,7 @@ import json
 import random
 import requests
 from pathlib import Path
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
@@ -29,6 +29,7 @@ LORE_DIR = ROOT / "neural_nomads" / "content" / "lore"
 METADATA_DIR = ROOT / "neural_nomads" / "metadata"
 LOG_FILE = ROOT / "logs" / "farcaster_log.json"
 CALENDAR_STATE_FILE = ROOT / "logs" / "content_calendar_state.json"
+TREND_REPORT_FILE = ROOT / "logs" / "trend_report.json"
 
 NEYNAR_API_KEY = os.environ.get("NEYNAR_API_KEY")
 SIGNER_UUID = "96226a75-9ffa-4376-858e-7b08133b7bcb"
@@ -122,6 +123,30 @@ def save_calendar_state(state):
     CALENDAR_STATE_FILE.write_text(json.dumps(state, indent=2))
 
 # ---------------------------------------------------------------------------
+# Trend report loader
+# ---------------------------------------------------------------------------
+
+def load_trend_report():
+    """
+    Load logs/trend_report.json if it exists and is less than 24 hours old.
+    Returns the parsed dict, or None if unavailable / stale.
+    """
+    try:
+        if not TREND_REPORT_FILE.exists():
+            return None
+        mtime = datetime.fromtimestamp(TREND_REPORT_FILE.stat().st_mtime, tz=timezone.utc)
+        age_hours = (datetime.now(tz=timezone.utc) - mtime).total_seconds() / 3600
+        if age_hours > 24:
+            print("Trend report is older than 24 hours, ignoring.")
+            return None
+        report = json.loads(TREND_REPORT_FILE.read_text())
+        print(f"Loaded trend report (age: {age_hours:.1f}h)")
+        return report
+    except Exception as e:
+        print(f"Warning: could not load trend report: {e}")
+        return None
+
+# ---------------------------------------------------------------------------
 # Content-type selection
 # ---------------------------------------------------------------------------
 
@@ -146,8 +171,13 @@ def pick_content_type(state):
 # Piece / tier selection (ensures variety)
 # ---------------------------------------------------------------------------
 
-def pick_piece(all_lore, state):
-    """Pick a piece that hasn't been featured recently."""
+def pick_piece(all_lore, state, trend_report=None):
+    """Pick a piece that hasn't been featured recently.
+
+    If a trend report with ``recommended_pieces`` is available, there is a 70 %
+    chance the piece is drawn from that subset (intersected with unfeatured
+    pieces).  The remaining 30 % keeps selection random for variety.
+    """
     featured = set(state.get("featured_piece_ids", []))
     unfeatured = [p for p in all_lore if p["_id"] not in featured]
 
@@ -156,19 +186,49 @@ def pick_piece(all_lore, state):
         state["featured_piece_ids"] = []
         unfeatured = all_lore
 
+    recommended_names = []
+    if trend_report:
+        recommended_names = [n.lower() for n in trend_report.get("recommended_pieces", [])]
+
+    if recommended_names and random.random() < 0.70:
+        recommended = [
+            p for p in unfeatured
+            if p.get("piece_name", "").lower() in recommended_names
+               or p.get("_id") in trend_report.get("recommended_pieces", [])
+        ]
+        if recommended:
+            chosen = random.choice(recommended)
+            state["featured_piece_ids"].append(chosen["_id"])
+            return chosen
+
     chosen = random.choice(unfeatured)
     state["featured_piece_ids"].append(chosen["_id"])
     return chosen
 
 
-def pick_tier(state):
-    """Pick a tier that hasn't been spotlighted recently."""
+def pick_tier(state, trend_report=None):
+    """Pick a tier that hasn't been spotlighted recently.
+
+    If a trend report with ``recommended_tiers`` is available, prefer those
+    (70 / 30 split, same logic as piece selection).
+    """
     featured = set(state.get("featured_tiers", []))
     unfeatured = [t for t in TIERS if t not in featured]
 
     if not unfeatured:
         state["featured_tiers"] = []
         unfeatured = list(TIERS)
+
+    recommended_tiers = []
+    if trend_report:
+        recommended_tiers = [t.capitalize() for t in trend_report.get("recommended_tiers", [])]
+
+    if recommended_tiers and random.random() < 0.70:
+        preferred = [t for t in unfeatured if t in recommended_tiers]
+        if preferred:
+            chosen = random.choice(preferred)
+            state["featured_tiers"].append(chosen)
+            return chosen
 
     chosen = random.choice(unfeatured)
     state["featured_tiers"].append(chosen)
@@ -282,47 +342,70 @@ def prompt_piece_reveal(piece, metadata, phase, days_until):
     )
 
 # ---------------------------------------------------------------------------
+# Trend-aware prompt augmentation
+# ---------------------------------------------------------------------------
+
+def _trend_suffix(trend_report):
+    """Build an optional suffix to append to any prompt based on trend data."""
+    if not trend_report:
+        return ""
+    parts = []
+    # Content angle
+    angles = trend_report.get("content_angles", [])
+    if angles:
+        parts.append(f"Trending content angle to weave in (if natural): {angles[0]}")
+    # Post tone guidance
+    tone = trend_report.get("post_tone")
+    if tone:
+        parts.append(f"Tone guidance from current trends: {tone}")
+    if not parts:
+        return ""
+    return "\n" + "\n".join(parts) + "\n"
+
+# ---------------------------------------------------------------------------
 # Build the prompt for the chosen content type
 # ---------------------------------------------------------------------------
 
-def build_prompt(content_type, all_lore, state, phase, days_until):
+def build_prompt(content_type, all_lore, state, phase, days_until, trend_report=None):
     """
     Return (prompt_text, piece_name_for_log) for the selected content type.
     """
+    suffix = _trend_suffix(trend_report)
+
     if content_type == "lore_drop":
-        piece = pick_piece(all_lore, state)
-        return prompt_lore_drop(piece, phase, days_until), piece.get("piece_name", "Unknown")
+        piece = pick_piece(all_lore, state, trend_report)
+        return prompt_lore_drop(piece, phase, days_until) + suffix, piece.get("piece_name", "Unknown")
 
     elif content_type == "tier_spotlight":
-        tier = pick_tier(state)
+        tier = pick_tier(state, trend_report)
         tier_pieces = get_pieces_for_tier(all_lore, tier)
         if not tier_pieces:
             # Fallback: pick any piece instead
-            piece = pick_piece(all_lore, state)
-            return prompt_lore_drop(piece, phase, days_until), piece.get("piece_name", "Unknown")
-        return prompt_tier_spotlight(tier, tier_pieces, phase, days_until), f"Tier: {tier}"
+            piece = pick_piece(all_lore, state, trend_report)
+            return prompt_lore_drop(piece, phase, days_until) + suffix, piece.get("piece_name", "Unknown")
+        return prompt_tier_spotlight(tier, tier_pieces, phase, days_until) + suffix, f"Tier: {tier}"
 
     elif content_type == "countdown":
-        piece = pick_piece(all_lore, state)
-        return prompt_countdown(piece, phase, days_until), piece.get("piece_name", "Unknown")
+        piece = pick_piece(all_lore, state, trend_report)
+        return prompt_countdown(piece, phase, days_until) + suffix, piece.get("piece_name", "Unknown")
 
     elif content_type == "collector_question":
-        piece = pick_piece(all_lore, state)
-        return prompt_collector_question(piece, phase, days_until), piece.get("piece_name", "Unknown")
+        piece = pick_piece(all_lore, state, trend_report)
+        return prompt_collector_question(piece, phase, days_until) + suffix, piece.get("piece_name", "Unknown")
 
     elif content_type == "behind_the_veil":
-        piece = pick_piece(all_lore, state)
-        return prompt_behind_the_veil(piece, phase, days_until), piece.get("piece_name", "Unknown")
+        piece = pick_piece(all_lore, state, trend_report)
+        return prompt_behind_the_veil(piece, phase, days_until) + suffix, piece.get("piece_name", "Unknown")
 
     elif content_type == "piece_reveal":
-        piece = pick_piece(all_lore, state)
+        piece = pick_piece(all_lore, state, trend_report)
         metadata = load_metadata(piece["_id"])
-        return prompt_piece_reveal(piece, metadata, phase, days_until), piece.get("piece_name", "Unknown")
+        return prompt_piece_reveal(piece, metadata, phase, days_until) + suffix, piece.get("piece_name", "Unknown")
 
     else:
         # Shouldn't happen, but fall back to lore_drop
-        piece = pick_piece(all_lore, state)
-        return prompt_lore_drop(piece, phase, days_until), piece.get("piece_name", "Unknown")
+        piece = pick_piece(all_lore, state, trend_report)
+        return prompt_lore_drop(piece, phase, days_until) + suffix, piece.get("piece_name", "Unknown")
 
 # ---------------------------------------------------------------------------
 # Claude generation
@@ -401,11 +484,13 @@ def run():
         print("No lore files found. Exiting.")
         return
 
+    trend_report = load_trend_report()
+
     state = load_calendar_state()
     content_type = pick_content_type(state)
     print(f"Content type: {content_type}")
 
-    prompt, piece_name = build_prompt(content_type, all_lore, state, phase, days_until)
+    prompt, piece_name = build_prompt(content_type, all_lore, state, phase, days_until, trend_report)
     print(f"Selected: {piece_name}")
 
     text = generate_post(prompt)

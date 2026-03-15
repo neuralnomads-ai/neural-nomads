@@ -1,5 +1,7 @@
 import json
+import os
 import random
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import quote
@@ -24,9 +26,24 @@ for f in sorted((base / "content/lore").glob("*.json"), key=lambda p: int(p.stem
     img = f"https://gateway.pinata.cloud/ipfs/{cid}" if cid else ""
     pieces.append({"name":name,"tier":d.get("tier",""),"provenance":d.get("provenance","").replace('"',"'"),"threshold":d.get("threshold_note","").replace('"',"'"),"collector":d.get("collector_meaning","").replace('"',"'"),"img":img})
 
-# Daily random featured piece and lore quote
+# Daily random featured piece (trend-aware) and lore quote
 random.seed(datetime.now().strftime('%Y%m%d'))
-featured = random.choice(pieces) if pieces else None
+featured_eyebrow = "Today's Featured Piece"
+trend_pool = None
+trend_report_path = Path.home() / "OpenClaw/logs/trend_report.json"
+try:
+    if trend_report_path.exists():
+        age_hours = (time.time() - os.path.getmtime(trend_report_path)) / 3600
+        if age_hours <= 48:
+            tr = json.loads(trend_report_path.read_text())
+            rec = tr.get("recommended_pieces", [])
+            if rec and pieces:
+                trend_pool = [pieces[e - 1] for e in rec if 1 <= e <= len(pieces)]
+            if tr.get("site_emphasis"):
+                featured_eyebrow = tr["site_emphasis"]
+except Exception:
+    pass
+featured = random.choice(trend_pool if trend_pool else pieces) if pieces else None
 lore_piece = random.choice(pieces) if pieces else None
 
 cards = ""
@@ -36,7 +53,7 @@ for i, p in enumerate(pieces, 1):
 # Build featured piece HTML
 featured_html = ""
 if featured:
-    featured_html = f'<section class="featured-section"><p class="featured-eyebrow">Today\'s Featured Piece</p><div class="featured-inner"><div class="featured-img"><img src="{featured["img"]}" alt="{featured["name"]}"></div><div class="featured-info"><span class="featured-tier">{featured["tier"]}</span><h2 class="featured-name">{featured["name"]}</h2><p class="featured-prov">{featured["provenance"]}</p></div></div></section>'
+    featured_html = f'<section class="featured-section"><p class="featured-eyebrow">{featured_eyebrow}</p><div class="featured-inner"><div class="featured-img"><img src="{featured["img"]}" alt="{featured["name"]}"></div><div class="featured-info"><span class="featured-tier">{featured["tier"]}</span><h2 class="featured-name">{featured["name"]}</h2><p class="featured-prov">{featured["provenance"]}</p></div></div></section>'
 
 # Build lore teaser HTML
 lore_html = ""
