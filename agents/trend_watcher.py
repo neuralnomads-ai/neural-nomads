@@ -6,8 +6,8 @@ should capitalize on.  Produces a trend report at logs/trend_report.json
 that other agents (content_calendar, twitter_agent, build_site) can consume
 to adapt their behaviour.
 
-All trend signals are gathered via the Anthropic API (claude-haiku-4-5) --
-no paid third-party APIs required.
+Trend signals are gathered via local Ollama (llama3.1:8b) when available,
+falling back to the Anthropic API (claude-haiku) if Ollama is unreachable.
 """
 
 import os
@@ -19,6 +19,12 @@ from pathlib import Path
 from datetime import datetime, date
 
 from dotenv import load_dotenv
+
+# ---------------------------------------------------------------------------
+# Local brain (Ollama)
+# ---------------------------------------------------------------------------
+sys.path.insert(0, str(Path.home() / "OpenClaw"))
+from agent.local_brain import think, analyze  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Environment
@@ -73,13 +79,13 @@ def load_all_lore() -> list[dict]:
     return pieces
 
 # ---------------------------------------------------------------------------
-# Claude helper
+# LLM helper — local Ollama first, Claude fallback
 # ---------------------------------------------------------------------------
 
-def ask_claude(prompt: str, max_tokens: int = 1024) -> str | None:
-    """Send a single-turn message to Claude Haiku and return the text."""
+def _ask_claude(prompt: str, max_tokens: int = 1024) -> str | None:
+    """Fallback: send a single-turn message to Claude Haiku."""
     if not ANTHROPIC_API_KEY:
-        print("Error: ANTHROPIC_API_KEY not set.")
+        print("Error: ANTHROPIC_API_KEY not set — cannot fall back to Claude.")
         return None
     try:
         r = requests.post(
@@ -101,6 +107,19 @@ def ask_claude(prompt: str, max_tokens: int = 1024) -> str | None:
     except Exception as e:
         print(f"Claude API error: {e}")
         return None
+
+
+def ask_llm(prompt: str, max_tokens: int = 1024) -> str | None:
+    """Try local Ollama (via local_brain.think), fall back to Claude API."""
+    # Try local first
+    result = think(prompt, temperature=0.5, timeout=90)
+    if result is not None:
+        print("  (using local Ollama)")
+        return result
+
+    # Ollama unavailable or failed — fall back to cloud
+    print("  Ollama unavailable, falling back to Claude API...")
+    return _ask_claude(prompt, max_tokens=max_tokens)
 
 # ---------------------------------------------------------------------------
 # Step 1 — Gather trend signals
@@ -139,7 +158,7 @@ Return ONLY a JSON object (no markdown fences) with this exact schema:
   "days_until_april_20": {days_until_drop}
 }}"""
 
-    raw = ask_claude(prompt, max_tokens=1024)
+    raw = ask_llm(prompt, max_tokens=1024)
     if not raw:
         return None
     try:
@@ -218,7 +237,7 @@ Return ONLY a JSON object (no markdown fences) with this exact schema:
 
 Pick 3-5 recommended pieces (by id number) and 1-3 tiers."""
 
-    raw = ask_claude(prompt, max_tokens=1024)
+    raw = ask_llm(prompt, max_tokens=1024)
     if not raw:
         return None
     try:
