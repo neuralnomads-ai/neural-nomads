@@ -200,8 +200,23 @@ def handle_message(text, state):
         send_message("Type *help* for commands.")
 
 
+def is_sleep_hours():
+    """Check if it's between 10 PM and 7 AM (auto-approve window)."""
+    hour = datetime.now().hour
+    return hour >= 22 or hour < 7
+
+
+def auto_approve_draft(draft):
+    """Auto-approve a draft during sleep hours."""
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    approved_file = APPROVED_DIR / f"approved_{ts}.json"
+    draft["auto_approved"] = True
+    draft["approved_at"] = datetime.now().isoformat()
+    approved_file.write_text(json.dumps(draft, indent=2))
+
+
 def notify_new_drafts(state):
-    """Check for new drafts and send for approval."""
+    """Check for new drafts and send for approval, or auto-approve during sleep."""
     if not DRAFT_LOG.exists():
         return
 
@@ -213,10 +228,15 @@ def notify_new_drafts(state):
     new_drafts = [d for d in drafts if d.get("timestamp", "") > last_notified]
 
     for draft in new_drafts[-1:]:  # Only send the latest
-        send_draft_for_approval(draft)
-        state["pending_drafts"] = state.get("pending_drafts", []) + [draft]
-        state["last_draft_notified"] = draft.get("timestamp", "")
-        save_state(state)
+        if is_sleep_hours():
+            auto_approve_draft(draft)
+            state["last_draft_notified"] = draft.get("timestamp", "")
+            save_state(state)
+        else:
+            send_draft_for_approval(draft)
+            state["pending_drafts"] = state.get("pending_drafts", []) + [draft]
+            state["last_draft_notified"] = draft.get("timestamp", "")
+            save_state(state)
 
 
 def run():
