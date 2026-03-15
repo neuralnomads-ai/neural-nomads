@@ -102,6 +102,9 @@ def engage_farcaster():
 def analyze_trends():
     run_agent('trend-watcher', 'agents/trend_watcher.py', args=['--once'], timeout=90)
 
+def run_autonomous_engine():
+    run_agent('autonomous-engine', 'agents/autonomous_engine.py', args=['--once'], timeout=180)
+
 # ══════════════════════════════════════════════════════════════════════
 # BITS.TAX AGENTS
 # ══════════════════════════════════════════════════════════════════════
@@ -162,7 +165,13 @@ while True:
         check_mints()                    # Neural Nomads: mint monitoring
         engage_farcaster()               # Neural Nomads: community engagement
 
-        # ── Every 2 hours ─────────────────────────────────────────
+        # ── Every 2 hours: autonomous AI decisions ─────────────────
+        if hours_since(state.get('last_autonomous')) >= 2:
+            run_autonomous_engine()      # Local AI decides what needs attention
+            state['last_autonomous'] = now
+            save_state(state)
+
+        # ── Every 2 hours: health checks ─────────────────────────
         if hours_since(state.get('last_health_check')) >= 2:
             run_self_heal()              # Self-healing: scan all projects, fix issues, send digest
             bitstax_health()             # bits.tax: health + self-healing
