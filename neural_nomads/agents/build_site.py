@@ -2,6 +2,7 @@ import json
 import random
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import quote
 
 base = Path(__file__).parent.parent
 cids = json.loads((base / "content/ipfs_image_cids.json").read_text())
@@ -29,8 +30,8 @@ featured = random.choice(pieces) if pieces else None
 lore_piece = random.choice(pieces) if pieces else None
 
 cards = ""
-for p in pieces:
-    cards += f'<div class="card" onclick="openModal(this)" data-name="{p["name"]}" data-tier="{p["tier"]}" data-provenance="{p["provenance"]}" data-threshold="{p["threshold"]}" data-collector="{p["collector"]}"><div class="card-img-wrap"><img src="{p["img"]}" loading="lazy" onerror="this.parentElement.style.background=\'#0a0a0f\'"></div><div class="card-overlay"><span class="card-tier">{p["tier"]}</span><span class="card-name">{p["name"]}</span></div></div>'
+for i, p in enumerate(pieces, 1):
+    cards += f'<div class="card" onclick="openModal(this)" data-name="{p["name"]}" data-tier="{p["tier"]}" data-provenance="{p["provenance"]}" data-threshold="{p["threshold"]}" data-collector="{p["collector"]}" data-edition="{i}"><div class="card-img-wrap"><img src="{p["img"]}" loading="lazy" onerror="this.parentElement.style.background=\'#0a0a0f\'"></div><div class="card-overlay"><span class="card-tier">{p["tier"]}</span><span class="card-name">{p["name"]}</span></div></div>'
 
 # Build featured piece HTML
 featured_html = ""
@@ -104,9 +105,113 @@ html{{scroll-behavior:smooth}}
 .why-card{{transition:border-color .3s,transform .3s}}.why-card:hover{{transform:translateY(-4px)}}
 .community-btn-primary{{animation:pulseGlow 3s ease-in-out infinite}}
 
-.card::after{{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.04) 50%,transparent 70%);background-size:200% 100%;opacity:0;transition:opacity .4s;z-index:1;pointer-events:none}}.card:hover::after{{opacity:1;animation:shimmer 1.8s ease-in-out forwards}}@media(max-width:768px){{.modal-inner{{grid-template-columns:1fr}}.hero-meta{{gap:30px}}.timer-unit{{padding:0 20px}}footer .footer-inner{{flex-direction:column;gap:20px;text-align:center}}.f-detail{{text-align:center}}.f-links{{justify-content:center}}}}</style><link rel="stylesheet" href="design_autonomous.css"></head><body><nav class="social-bar"><a href="https://x.com/neural_nomads_ai" target="_blank" title="X / Twitter">X</a><a href="https://warpcast.com/neuralnomads" target="_blank" title="Farcaster">FC</a><a href="https://t.me/neural_nomads" target="_blank" title="Telegram">TG</a><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" title="Mint">M</a></nav><section class="hero"><p class="eyebrow">33 figures · 8 phases · one threshold</p><h1 class="title">Neural<br><em>Nomads</em></h1><p class="subtitle">A psychological journey through the architecture of self</p><div class="hero-meta"><div><span class="num">33</span><span class="lbl">Pieces</span></div><div><span class="num">8</span><span class="lbl">Phases</span></div><div><span class="num">1</span><span class="lbl">Drop</span></div></div></section><section class="countdown-section"><p class="countdown-label">The threshold opens in</p><div class="timer"><div class="timer-unit"><span class="timer-num" id="d">--</span><span class="timer-label">Days</span></div><div class="timer-unit"><span class="timer-num" id="h">--</span><span class="timer-label">Hours</span></div><div class="timer-unit"><span class="timer-num" id="m">--</span><span class="timer-label">Min</span></div><div class="timer-unit"><span class="timer-num" id="s">--</span><span class="timer-label">Sec</span></div></div><p class="drop-date">April 20, 2026 — All 33 pieces available</p><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" class="mint-link" style="font-size:.8rem;padding:16px 52px">Mint on Manifold — April 20, 2026</a></section><section class="about-section reveal"><p class="about-eyebrow">The Project</p><h2 class="about-heading">A 33-piece collection born from personal transformation</h2><p class="about-text">Neural Nomads: The Threshold maps the psychological journey of becoming — from the first flicker of self-awareness through confrontation, sovereignty, and beyond. Each piece carries its own lore, its own threshold moment, its own meaning for the collector who holds it.</p><div class="about-details"><div class="about-detail"><span class="about-num">33</span><span class="about-label">Unique 1/1 pieces</span></div><div class="about-detail"><span class="about-num">8</span><span class="about-label">Psychological phases</span></div><div class="about-detail"><span class="about-num">Base</span><span class="about-label">Network</span></div><div class="about-detail"><span class="about-num">Apr 20</span><span class="about-label">Public sale</span></div></div></section>{featured_html}{lore_html}<section class="why-section reveal"><p class="why-eyebrow">For Collectors</p><div class="why-grid"><div class="why-card"><h3>Own a threshold moment</h3><p>Each piece captures a specific psychological turning point — the instant before everything changes.</p></div><div class="why-card"><h3>Deep narrative lore</h3><p>Every piece comes with provenance, a threshold note, and collector meaning — this isn't just art, it's a story you carry.</p></div><div class="why-card"><h3>Living collection</h3><p>The site evolves autonomously through phases. The art breathes. The mythology grows. Your piece is part of something alive.</p></div></div></section><div class="divider"><span>The Collection</span></div><section class="grid-section"><div class="grid">{cards}</div></section><section class="community-section reveal"><p class="community-eyebrow">Join the Journey</p><h2 class="community-heading">Follow the threshold as it opens</h2><div class="community-links"><a href="https://warpcast.com/neuralnomads" target="_blank" class="community-btn">Farcaster</a><a href="https://x.com/neural_nomads_ai" target="_blank" class="community-btn">X / Twitter</a><a href="https://t.me/neural_nomads" target="_blank" class="community-btn">Telegram</a><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" class="community-btn community-btn-primary">Mint on Manifold</a></div></section><section class="newsletter-section reveal"><p class="newsletter-eyebrow">Stay Connected</p><h2 class="newsletter-heading">Get notified when the threshold opens</h2><p class="newsletter-sub">Drop updates, lore reveals, and collector insights. No spam. Unsubscribe anytime.</p><form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/neuralnomads" method="post" target="popupwindow"><input type="email" name="email" placeholder="your@email.com" required /><button type="submit">Subscribe</button></form><p class="newsletter-note">Powered by Buttondown. Your email stays private.</p></section><div class="modal" id="modal"><span class="modal-close" onclick="closeModal()">&#215;</span><div class="modal-inner"><div class="modal-img"><img id="m-img" src=""></div><div class="modal-text"><div class="modal-tier" id="m-tier"></div><div class="modal-name" id="m-name"></div><div class="modal-section"><h3>Provenance</h3><p id="m-prov"></p></div><div class="modal-section"><h3>The Threshold</h3><p id="m-thresh"></p></div><div class="modal-section"><h3>What You Carry</h3><p id="m-coll"></p></div><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" class="modal-mint">Mint on Manifold</a></div></div></div><footer><div class="footer-inner"><div><span class="f-left">Neural Nomads — The Threshold</span><div class="f-links"><a href="https://warpcast.com/neuralnomads" target="_blank">Farcaster</a><a href="https://x.com/neural_nomads_ai" target="_blank">X @neural_nomads_ai</a><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank">Manifold</a></div></div><div><span class="f-right">Minting on Base</span><p class="f-detail">33 pieces · Base · April 20, 2026</p></div></div></footer><script>const drop=new Date("2026-04-20T00:00:00");function tick(){{const n=drop-Date.now();if(n<0)return;document.getElementById("d").textContent=String(Math.floor(n/86400000)).padStart(2,"0");document.getElementById("h").textContent=String(Math.floor(n%86400000/3600000)).padStart(2,"0");document.getElementById("m").textContent=String(Math.floor(n%3600000/60000)).padStart(2,"0");document.getElementById("s").textContent=String(Math.floor(n%60000/1000)).padStart(2,"0")}}tick();setInterval(tick,1000);function openModal(el){{document.getElementById("m-img").src=el.querySelector("img")?el.querySelector("img").src:"";document.getElementById("m-name").textContent=el.dataset.name;document.getElementById("m-tier").textContent=el.dataset.tier;document.getElementById("m-prov").textContent=el.dataset.provenance;document.getElementById("m-thresh").textContent=el.dataset.threshold;document.getElementById("m-coll").textContent=el.dataset.collector;document.getElementById("modal").classList.add("active");document.body.style.overflow="hidden"}}function closeModal(){{document.getElementById("modal").classList.remove("active");document.body.style.overflow=""}}document.getElementById("modal").addEventListener("click",function(e){{if(e.target===this)closeModal()}});document.addEventListener("keydown",e=>{{if(e.key==="Escape")closeModal()}});const cards=document.querySelectorAll('.card');const obs=new IntersectionObserver((entries)=>{{entries.forEach((e,i)=>{{if(e.isIntersecting){{setTimeout(()=>{{e.target.style.opacity="1";e.target.style.transform="translateY(0)"}},( i%8)*60);obs.unobserve(e.target)}}}})}},{{threshold:0.1}});cards.forEach(c=>{{c.style.opacity="0";c.style.transform="translateY(16px)";c.style.transition="opacity 0.6s ease,transform 0.6s ease";obs.observe(c)}});const revealObs=new IntersectionObserver((entries)=>{{entries.forEach(e=>{{if(e.isIntersecting){{e.target.classList.add('visible');revealObs.unobserve(e.target)}}}})}},{{threshold:0.15}});document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));</script></body></html>"""
+.card::after{{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.04) 50%,transparent 70%);background-size:200% 100%;opacity:0;transition:opacity .4s;z-index:1;pointer-events:none}}.card:hover::after{{opacity:1;animation:shimmer 1.8s ease-in-out forwards}}@media(max-width:768px){{.modal-inner{{grid-template-columns:1fr}}.hero-meta{{gap:30px}}.timer-unit{{padding:0 20px}}footer .footer-inner{{flex-direction:column;gap:20px;text-align:center}}.f-detail{{text-align:center}}.f-links{{justify-content:center}}}}</style><link rel="stylesheet" href="design_autonomous.css"></head><body><nav class="social-bar"><a href="https://x.com/neural_nomads_ai" target="_blank" title="X / Twitter">X</a><a href="https://warpcast.com/neuralnomads" target="_blank" title="Farcaster">FC</a><a href="https://t.me/neural_nomads" target="_blank" title="Telegram">TG</a><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" title="Mint">M</a></nav><section class="hero"><p class="eyebrow">33 figures · 8 phases · one threshold</p><h1 class="title">Neural<br><em>Nomads</em></h1><p class="subtitle">A psychological journey through the architecture of self</p><div class="hero-meta"><div><span class="num">33</span><span class="lbl">Pieces</span></div><div><span class="num">8</span><span class="lbl">Phases</span></div><div><span class="num">1</span><span class="lbl">Drop</span></div></div></section><section class="countdown-section"><p class="countdown-label">The threshold opens in</p><div class="timer"><div class="timer-unit"><span class="timer-num" id="d">--</span><span class="timer-label">Days</span></div><div class="timer-unit"><span class="timer-num" id="h">--</span><span class="timer-label">Hours</span></div><div class="timer-unit"><span class="timer-num" id="m">--</span><span class="timer-label">Min</span></div><div class="timer-unit"><span class="timer-num" id="s">--</span><span class="timer-label">Sec</span></div></div><p class="drop-date">April 20, 2026 — All 33 pieces available</p><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" class="mint-link" style="font-size:.8rem;padding:16px 52px">Mint on Manifold — April 20, 2026</a></section><section class="about-section reveal"><p class="about-eyebrow">The Project</p><h2 class="about-heading">A 33-piece collection born from personal transformation</h2><p class="about-text">Neural Nomads: The Threshold maps the psychological journey of becoming — from the first flicker of self-awareness through confrontation, sovereignty, and beyond. Each piece carries its own lore, its own threshold moment, its own meaning for the collector who holds it.</p><div class="about-details"><div class="about-detail"><span class="about-num">33</span><span class="about-label">Unique 1/1 pieces</span></div><div class="about-detail"><span class="about-num">8</span><span class="about-label">Psychological phases</span></div><div class="about-detail"><span class="about-num">Base</span><span class="about-label">Network</span></div><div class="about-detail"><span class="about-num">Apr 20</span><span class="about-label">Public sale</span></div></div></section>{featured_html}{lore_html}<section class="why-section reveal"><p class="why-eyebrow">For Collectors</p><div class="why-grid"><div class="why-card"><h3>Own a threshold moment</h3><p>Each piece captures a specific psychological turning point — the instant before everything changes.</p></div><div class="why-card"><h3>Deep narrative lore</h3><p>Every piece comes with provenance, a threshold note, and collector meaning — this isn't just art, it's a story you carry.</p></div><div class="why-card"><h3>Living collection</h3><p>The site evolves autonomously through phases. The art breathes. The mythology grows. Your piece is part of something alive.</p></div></div></section><div class="divider"><span>The Collection</span></div><section class="grid-section"><div class="grid">{cards}</div></section><section class="community-section reveal"><p class="community-eyebrow">Join the Journey</p><h2 class="community-heading">Follow the threshold as it opens</h2><div class="community-links"><a href="https://warpcast.com/neuralnomads" target="_blank" class="community-btn">Farcaster</a><a href="https://x.com/neural_nomads_ai" target="_blank" class="community-btn">X / Twitter</a><a href="https://t.me/neural_nomads" target="_blank" class="community-btn">Telegram</a><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" class="community-btn community-btn-primary">Mint on Manifold</a></div></section><section class="newsletter-section reveal"><p class="newsletter-eyebrow">Stay Connected</p><h2 class="newsletter-heading">Get notified when the threshold opens</h2><p class="newsletter-sub">Drop updates, lore reveals, and collector insights. No spam. Unsubscribe anytime.</p><form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/neuralnomads" method="post" target="popupwindow"><input type="email" name="email" placeholder="your@email.com" required /><button type="submit">Subscribe</button></form><p class="newsletter-note">Powered by Buttondown. Your email stays private.</p></section><div class="modal" id="modal"><span class="modal-close" onclick="closeModal()">&#215;</span><div class="modal-inner"><div class="modal-img"><img id="m-img" src=""></div><div class="modal-text"><div class="modal-tier" id="m-tier"></div><div class="modal-name" id="m-name"></div><div class="modal-section"><h3>Provenance</h3><p id="m-prov"></p></div><div class="modal-section"><h3>The Threshold</h3><p id="m-thresh"></p></div><div class="modal-section"><h3>What You Carry</h3><p id="m-coll"></p></div><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" class="modal-mint">Mint on Manifold</a><a id="m-fullpage" href="#" class="modal-mint" style="margin-left:16px;border-color:rgba(255,255,255,.15);color:var(--muted)">View Full Page</a></div></div></div><footer><div class="footer-inner"><div><span class="f-left">Neural Nomads — The Threshold</span><div class="f-links"><a href="https://warpcast.com/neuralnomads" target="_blank">Farcaster</a><a href="https://x.com/neural_nomads_ai" target="_blank">X @neural_nomads_ai</a><a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank">Manifold</a></div></div><div><span class="f-right">Minting on Base</span><p class="f-detail">33 pieces · Base · April 20, 2026</p></div></div></footer><script>const drop=new Date("2026-04-20T00:00:00");function tick(){{const n=drop-Date.now();if(n<0)return;document.getElementById("d").textContent=String(Math.floor(n/86400000)).padStart(2,"0");document.getElementById("h").textContent=String(Math.floor(n%86400000/3600000)).padStart(2,"0");document.getElementById("m").textContent=String(Math.floor(n%3600000/60000)).padStart(2,"0");document.getElementById("s").textContent=String(Math.floor(n%60000/1000)).padStart(2,"0")}}tick();setInterval(tick,1000);function openModal(el){{document.getElementById("m-img").src=el.querySelector("img")?el.querySelector("img").src:"";document.getElementById("m-name").textContent=el.dataset.name;document.getElementById("m-tier").textContent=el.dataset.tier;document.getElementById("m-prov").textContent=el.dataset.provenance;document.getElementById("m-thresh").textContent=el.dataset.threshold;document.getElementById("m-coll").textContent=el.dataset.collector;document.getElementById("m-fullpage").href="/piece/"+el.dataset.edition+".html";document.getElementById("modal").classList.add("active");document.body.style.overflow="hidden"}}function closeModal(){{document.getElementById("modal").classList.remove("active");document.body.style.overflow=""}}document.getElementById("modal").addEventListener("click",function(e){{if(e.target===this)closeModal()}});document.addEventListener("keydown",e=>{{if(e.key==="Escape")closeModal()}});const cards=document.querySelectorAll('.card');const obs=new IntersectionObserver((entries)=>{{entries.forEach((e,i)=>{{if(e.isIntersecting){{setTimeout(()=>{{e.target.style.opacity="1";e.target.style.transform="translateY(0)"}},( i%8)*60);obs.unobserve(e.target)}}}})}},{{threshold:0.1}});cards.forEach(c=>{{c.style.opacity="0";c.style.transform="translateY(16px)";c.style.transition="opacity 0.6s ease,transform 0.6s ease";obs.observe(c)}});const revealObs=new IntersectionObserver((entries)=>{{entries.forEach(e=>{{if(e.isIntersecting){{e.target.classList.add('visible');revealObs.unobserve(e.target)}}}})}},{{threshold:0.15}});document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));</script></body></html>"""
 
 out = Path.home() / "OpenClaw/site"
 out.mkdir(exist_ok=True)
 (out / "index.html").write_text(html)
+
+# Generate individual piece pages
+piece_dir = out / "piece"
+piece_dir.mkdir(exist_ok=True)
+for i, p in enumerate(pieces, 1):
+    share_text = f"{p['name']} — Neural Nomads: The Threshold. 33 figures, 8 phases, one psychological journey. https://neuralnomads.shop/piece/{i}.html"
+    encoded_share = quote(share_text, safe='')
+    x_share = f"https://x.com/intent/tweet?text={encoded_share}"
+    fc_share = f"https://warpcast.com/~/compose?text={encoded_share}"
+    og_desc = p["provenance"] if p["provenance"] else "A psychological journey through the architecture of self."
+    piece_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{og_desc}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://neuralnomads.shop/piece/{i}.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{p["name"]} — Neural Nomads #{i}">
+<meta property="og:description" content="{og_desc}">
+<meta property="og:url" content="https://neuralnomads.shop/piece/{i}.html">
+<meta property="og:image" content="{p["img"]}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neural_nomads_ai">
+<meta name="twitter:title" content="{p["name"]} — Neural Nomads #{i}">
+<meta name="twitter:description" content="{og_desc}">
+<meta name="twitter:image" content="{p["img"]}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◎</text></svg>">
+<meta name="theme-color" content="#04040a">
+<title>{p["name"]} — Neural Nomads #{i}</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Courier+Prime:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/design_autonomous.css">
+<style>
+:root{{--bg:#04040a;--surface:#08080f;--border:rgba(255,255,255,0.06);--text:#e8e4dc;--muted:#8a8590;--accent:#9b7fe8;--white:#f0ede6}}
+*{{margin:0;padding:0;box-sizing:border-box}}
+body{{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',serif;min-height:100vh}}
+.piece-page{{max-width:1000px;margin:0 auto;padding:60px 20px 100px}}
+.back-link{{display:inline-block;font-family:'Courier Prime',monospace;font-size:.65rem;letter-spacing:.3em;color:var(--muted);text-decoration:none;text-transform:uppercase;margin-bottom:48px;transition:color .3s}}
+.back-link:hover{{color:var(--accent)}}
+.piece-hero{{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}}
+.piece-img img{{width:100%;aspect-ratio:1;object-fit:cover;display:block}}
+.piece-info{{padding:20px 0}}
+.piece-tier{{font-family:'Courier Prime',monospace;font-size:.6rem;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:16px}}
+.piece-name{{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:40px}}
+.piece-section h3{{font-family:'Courier Prime',monospace;font-size:.55rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;margin-top:28px}}
+.piece-section p{{font-size:1.1rem;font-weight:300;font-style:italic;color:#a09aab;line-height:1.8}}
+.piece-actions{{display:flex;gap:16px;flex-wrap:wrap;margin-top:48px}}
+.piece-btn{{display:inline-block;padding:14px 36px;border:1px solid rgba(155,127,232,.4);color:var(--accent);text-decoration:none;font-family:'Courier Prime',monospace;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;transition:all .3s}}
+.piece-btn:hover{{background:var(--accent);color:var(--bg)}}
+.piece-btn-secondary{{border-color:var(--border);color:var(--muted)}}
+.piece-btn-secondary:hover{{border-color:var(--accent);color:var(--accent);background:transparent}}
+.share-section{{margin-top:60px;padding-top:40px;border-top:1px solid var(--border)}}
+.share-label{{font-family:'Courier Prime',monospace;font-size:.55rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;margin-bottom:20px;display:block}}
+.share-links{{display:flex;gap:12px}}
+.share-link{{padding:10px 24px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-family:'Courier Prime',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;transition:all .3s}}
+.share-link:hover{{border-color:var(--accent);color:var(--accent)}}
+@media(max-width:768px){{
+.piece-hero{{grid-template-columns:1fr;gap:30px}}
+}}
+</style>
+</head>
+<body>
+<div class="piece-page">
+<a href="https://neuralnomads.shop" class="back-link">&larr; Back to Collection</a>
+<div class="piece-hero">
+<div class="piece-img"><img src="{p["img"]}" alt="{p["name"]}"></div>
+<div class="piece-info">
+<span class="piece-tier">{p["tier"]}</span>
+<h1 class="piece-name">{p["name"]}</h1>
+<div class="piece-section"><h3>Provenance</h3><p>{p["provenance"]}</p></div>
+<div class="piece-section"><h3>The Threshold</h3><p>{p["threshold"]}</p></div>
+<div class="piece-section"><h3>What You Carry</h3><p>{p["collector"]}</p></div>
+<div class="piece-actions">
+<a href="https://manifold.xyz/@thethreshold/contract/148263152" target="_blank" class="piece-btn">Mint on Manifold</a>
+<a href="https://neuralnomads.shop" class="piece-btn piece-btn-secondary">View Collection</a>
+</div>
+<div class="share-section">
+<span class="share-label">Share this piece</span>
+<div class="share-links">
+<a href="{x_share}" target="_blank" class="share-link">X</a>
+<a href="{fc_share}" target="_blank" class="share-link">Farcaster</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>"""
+    (piece_dir / f"{i}.html").write_text(piece_html)
+print(f"Piece pages built → ~/OpenClaw/site/piece/ ({len(pieces)} pages)")
+
+# Generate sitemap.xml
+sitemap_urls = '  <url><loc>https://neuralnomads.shop/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>\n'
+for i in range(1, len(pieces) + 1):
+    sitemap_urls += f'  <url><loc>https://neuralnomads.shop/piece/{i}</loc><priority>0.8</priority></url>\n'
+sitemap = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sitemap_urls}</urlset>\n'
+(out / "sitemap.xml").write_text(sitemap)
+
+# Generate robots.txt
+robots = "User-agent: *\nAllow: /\nSitemap: https://neuralnomads.shop/sitemap.xml\n"
+(out / "robots.txt").write_text(robots)
+
 print(f"Site built → ~/OpenClaw/site/index.html ({len(pieces)} pieces)")
+print(f"SEO files → sitemap.xml ({len(pieces) + 1} URLs), robots.txt")
